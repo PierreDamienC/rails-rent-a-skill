@@ -1,12 +1,61 @@
-.navbar-lewagon {
+$light-green: #49AC98;
+
+
+.navbar-rentskill {
   justify-content: space-between;
   background: white;
+  font-family:'Lato', sans-serif;
+  color: $light-green;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-rentskill .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-rentskill .navbar-brand img {
   width: 40px;
+}
+
+.navbar-rentskill #title-navbar {
+  font-size: 18px;
+  font-family:'Lato', sans-serif;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.star-icon {
+  color: $light-green;
+    &:hover {
+    transform: scale(1.1);
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  background-color: $light-green;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid;
+  font-weight: bolder;
+  text-align: center;
+  height: 30px;
+  margin-right: 10px;
+  &:hover {
+    color: $light-green;
+    border: 1px solid;
+    background-color: white;
+    font-weight: bolder;
+  }
+}
+
+.navbar-light .navbar-nav .nav-item {
+  margin-bottom: 0;
+}
+
+.dropdown:hover {
+  cursor: pointer;
 }
