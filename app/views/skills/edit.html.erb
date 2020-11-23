@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Edit a skill</h1>
+  <p>Here, create a skill that you will be able to rent later</p>
+  <%= simple_form_for(@skill) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.submit %>
+    <% end %>
+
+</div>
+
