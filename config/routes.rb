@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
-  get 'skills/index'
-  get 'skills/show'
-  get 'skills/create'
-  get 'skills/new'
-  get 'skills/update'
-  get 'skills/edit'
-  get 'skills/destroy'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'skills#index'
   resources :skills
 end
 

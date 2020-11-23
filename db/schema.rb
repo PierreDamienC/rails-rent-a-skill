@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_135511) do
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
-    t.text "decription"
+    t.text "description"
     t.integer "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

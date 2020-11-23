@@ -1,2 +1,5 @@
-<h1>Skills#show</h1>
-<p>Find me in app/views/skills/show.html.erb</p>
+<h1> <%= @skill.name %> </h1>
+<p> <%= @skill.description  %> </p>
+
+<p> <%= link_to "Edit", edit_skill_path  %> </p>
+<p> <%= link_to "Delete", skill_path(@skill), method: :delete, data: { confirm: "Are you sure?" }  %> </p>
