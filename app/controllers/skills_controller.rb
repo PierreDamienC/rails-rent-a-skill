@@ -1,12 +1,12 @@
 class SkillsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   def index
     @skills = Skill.all
   end
 
   def show
-    @skill = Skill.find(params[:id])
   end
 
   def new
@@ -27,12 +27,10 @@ class SkillsController < ApplicationController
 
 
   def edit
-    @skill = Skill.find(params[:id])
 
   end
 
   def update
-    @skill = Skill.find(params[:id])
     if @skill.update(skill_params)
       redirect_to skill_path(@skill)
     else
@@ -43,7 +41,6 @@ class SkillsController < ApplicationController
 
 
   def destroy
-    @skill = Skill.find(params[:id])
     @skill.destroy
     redirect_to skills_path
   end
@@ -52,5 +49,9 @@ class SkillsController < ApplicationController
 
   def skill_params
     params.require(:skill).permit(:name, :description, :price)
+  end
+
+  def set_skill
+    @skill = Skill.find(params[:id])
   end
 end
