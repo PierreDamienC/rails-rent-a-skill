@@ -4,7 +4,7 @@ $light-green: #49AC98;
 .navbar-rentskill {
   justify-content: space-between;
   background: white;
-  font-family:'Lato', sans-serif;
+  font-family:$font-family;
   color: $light-green;
 }
 
@@ -18,7 +18,7 @@ $light-green: #49AC98;
 
 .navbar-rentskill #title-navbar {
   font-size: 18px;
-  font-family:'Lato', sans-serif;
+  font-family:$font-family;
   font-weight: 400;
   margin-bottom: 0;
 }
