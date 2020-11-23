@@ -9,9 +9,16 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
 // Police
 $light-green: #49AC98;
+body {
+  font-family: $font-family;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family;
+}
