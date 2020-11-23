@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :authentication_keys => [:email]
   validates :first_name, presence: true
   validates :last_name, presence: true
+  has_many :bookings, dependent: :destroy
+  has_many :skills, dependent: :destroy
 end
