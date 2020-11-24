@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :skills do 
     resources :bookings, only: [:new, :create, :show]
   end
+  patch "/skills/:skill_id/bookings/:id", to: "bookings#validate", as: :validate_skill_booking
 end
 
 
