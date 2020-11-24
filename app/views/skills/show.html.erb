@@ -2,8 +2,12 @@
 	<h1> <%= @skill.name %> </h1>
 	<p> <%= @skill.description  %> </p>
 
+<% if policy(@skill).edit? %>
 	<p> <%= link_to "Edit", edit_skill_path  %> </p>
+<% end %>
+<% if policy(@skill).destroy? %>
 	<p> <%= link_to "Delete", skill_path(@skill), method: :delete, data: { confirm: "Are you sure?" }  %> </p>
+<% end %>
 	<p><%= link_to "Make a reservation", new_skill_booking_path(@skill) %></p>
 	<p><%= link_to "Back", skills_path %></p>
 </div>

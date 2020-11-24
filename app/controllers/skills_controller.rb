@@ -1,9 +1,10 @@
 class SkillsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :authorizing_skill, only: [:show, :new, :create, :destroy, :edit, :update]
 
   def index
-    @skills = Skill.all
+    @skills = policy_scope(Skill)
   end
 
   def show
@@ -22,12 +23,9 @@ class SkillsController < ApplicationController
     else
       render :new
     end
-
   end
 
-
   def edit
-
   end
 
   def update
@@ -36,9 +34,7 @@ class SkillsController < ApplicationController
     else
       render :new
     end
-
   end
-
 
   def destroy
     @skill.destroy
@@ -46,6 +42,9 @@ class SkillsController < ApplicationController
   end
 
   private
+  def authorizing_skill
+    authorize @skill
+  end
 
   def skill_params
     params.require(:skill).permit(:name, :description, :price)
