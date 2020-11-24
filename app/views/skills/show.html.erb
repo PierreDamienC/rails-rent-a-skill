@@ -1,13 +1,20 @@
 <div class="container">
-	<h1> <%= @skill.name %> </h1>
-	<p> <%= @skill.description  %> </p>
-
-<% if policy(@skill).edit? %>
-	<p> <%= link_to "Edit", edit_skill_path  %> </p>
-<% end %>
-<% if policy(@skill).destroy? %>
-	<p> <%= link_to "Delete", skill_path(@skill), method: :delete, data: { confirm: "Are you sure?" }  %> </p>
-<% end %>
-	<p><%= link_to "Make a reservation", new_skill_booking_path(@skill) %></p>
-	<p><%= link_to "Back", skills_path %></p>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <strong>Name:</strong>
+      <h1> <%= @skill.name %> </h1>
+      <strong>Description:</strong>
+      <p> <%= @skill.description  %> </p>
+      <div class="links_show">
+        <% if policy(@skill).edit? %>
+          <p> <%= link_to "Edit", edit_skill_path, class: "button"  %> </p>
+        <% end %>
+        <% if policy(@skill).destroy? %>
+          <p> <%= link_to "Delete", skill_path(@skill), class: "button", method: :delete, data: { confirm: "Are you sure?" }  %> </p>
+        <% end %>
+        <p><%= link_to "Make a reservation", new_skill_booking_path(@skill),  class: "button" %></p>
+        <p><%= link_to "Back", skills_path, class: "button" %></p>
+      </div>
+    <div>
+  </div>
 </div>
