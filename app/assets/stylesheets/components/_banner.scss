@@ -3,7 +3,9 @@
   background-position: center;
   padding: 150px 0;
   position: relative;
+  top: -60px;
   height: 550px;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1583169462080-824fc2ebed23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
 }
 
 .banner h1 {
@@ -21,4 +23,9 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
+}
+
+#main-title
+{
+  text-shadow: 8px 8px 1px $burgundy;
 }
