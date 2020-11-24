@@ -46,16 +46,19 @@
   <div>
     <h1> Concept ?</h1>
   </div>
-  <div class="row">
+      <div class="row">
   <% @skills.each do |skill| %>
     <%= link_to skill_path(skill) do   %>
-    <div class= col-sm>
-       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <h2 class="product-name"><%= skill.name %></h2>
-          <p><%= skill.description  %></p>
-
+        <div class= col-sm>
+           <div class="card-product">
+            <% if skill.photo.attachment %>
+              <%= cl_image_tag skill.photo.key, crop: :fill %>
+            <% else  %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
+            <div class="card-product-infos">
+              <h2 class="product-name"><%= skill.name %></h2>
+              <p><%= skill.description  %></p>
         </div>
       </div>
     </div>

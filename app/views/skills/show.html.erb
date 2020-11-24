@@ -5,9 +5,10 @@
       <h1> <%= @skill.name %> </h1>
       <strong>Description:</strong>
       <p> <%= @skill.description  %> </p>
-      <div class="links_show">
+      <div class="links_show mt-5">
         <% if policy(@skill).edit? %>
           <p> <%= link_to "Edit", edit_skill_path, class: "button"  %> </p>
+          <%= cl_image_tag @skill.photo.key, crop: :fill %>
         <% end %>
         <% if policy(@skill).destroy? %>
           <p> <%= link_to "Delete", skill_path(@skill), class: "button", method: :delete, data: { confirm: "Are you sure?" }  %> </p>
