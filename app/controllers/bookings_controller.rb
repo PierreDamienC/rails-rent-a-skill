@@ -9,13 +9,14 @@ class BookingsController < ApplicationController
     @skill = Skill.find(params[:skill_id])
     @booking = Booking.new
     authorize @booking
-    
   end
 
   def create
+    @skill = Skill.find(params[:skill_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.accepted = false
+    @booking.skill = @skill
 
     authorize @booking
 
@@ -34,7 +35,7 @@ class BookingsController < ApplicationController
     redirect_to skill_booking_path
   end
 
-  private 
+  private
 
   def booking_params
     params.require(:booking).permit(:date_in, :date_out)
