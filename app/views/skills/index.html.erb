@@ -1,9 +1,30 @@
 <div class="container">
   <h1>Skills avalaible for rent</h1>
+      <div class="row">
+ <% @skills.each do |skill| %>
+    <%= link_to skill_path(skill) do   %>
+        <div class="col-sm">
+          <div class="card-trip">
+            <% if skill.photo.attachment %>
+              <%= cl_image_tag skill.photo.key, crop: :fill %>
+            <% else  %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <% end %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= skill.name %></h2>
+                <p><%= skill.description %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= skill.price %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
+        </div>
+    <% end %>
+<% end %>
+      </div>
 
-  <%@skills.each do |skill| %>
-    <p><%= link_to skill.name, skill_path(skill) %></p>
-  <% end %>
-
+ </div>
   <%= link_to "add a skill", new_skill_path %>
 </div>
+

@@ -32,8 +32,11 @@ h2{
   color:$burgundy;
 a {
   text-decoration: none;
+  color: #823038;
   &:hover {
     text-decoration: none;
+    color:#823038;
+    opacity: 0.8;
   }
  }
 }
