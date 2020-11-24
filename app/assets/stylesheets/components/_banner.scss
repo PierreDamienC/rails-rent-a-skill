@@ -2,21 +2,23 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  position: relative;
+  height: 550px;
 }
 
 .banner h1 {
   margin: 0;
-  color: $light-green;
+  color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 100px;
   font-weight: bold;
+  text-align: center;
 }
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: $light-green;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
 }
-
-
