@@ -1,16 +1,14 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h1>Add a skill</h1>
-      <p>Here, create a skill that you will be able to rent later</p>
-      <%= simple_form_for(@skill) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :price %>
-        <%= f.submit %>
-        <% end %>
-      <p><%= link_to "Back", skills_path %></p>
-    </div>
+  <div class="form">
+    <h2>Add a skill</h2>
+    <p>Here, create a skill that you will be able to rent later</p>
+    <%= simple_form_for(@skill) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.submit %>
+      <% end %>
+    <p><%= link_to "Back", skills_path %></p>
   </div>
 </div>
 
