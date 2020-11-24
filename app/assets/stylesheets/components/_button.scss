@@ -1,0 +1,18 @@
+.button {
+  color: white;
+  background-color: $light-green;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 8px 24px;
+  font-weight: bolder;
+  text-align: center;
+  height: 30px;
+  margin-right: 10px;
+  &:hover {
+    color: $light-green;
+    border: 1px solid;
+    background-color: white;
+    font-weight: bolder;
+  }
+}
