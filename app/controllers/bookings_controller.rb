@@ -35,6 +35,20 @@ class BookingsController < ApplicationController
     redirect_to skill_booking_path
   end
 
+  def users_bookings
+    @users_skills = current_user.skills
+    @users_skills = @users_skills.to_a.map { |skill| skill.bookings.to_a }.to_a
+    @users_skills.each { |bookings_skill| bookings_skill.each do |booking|
+      authorize booking
+    end
+  }
+  end
+
+  def my_bookings
+    @user_bookings = current_user.bookings
+    @user_bookings.each { |booking| authorize booking }
+  end
+
   private
 
   def booking_params

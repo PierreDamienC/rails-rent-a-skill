@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :skills do 
+  resources :skills do
     resources :bookings, only: [:new, :create, :show]
   end
   patch "/skills/:skill_id/bookings/:id", to: "bookings#validate", as: :validate_skill_booking
+  get "/account/users-bookings", to: "bookings#users_bookings", as: :users_bookings
+  get "/account/my-bookings", to: "bookings#my_bookings", as: :my_bookings
 end
 
 

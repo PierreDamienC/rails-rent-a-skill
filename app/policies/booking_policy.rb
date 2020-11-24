@@ -12,9 +12,15 @@ class BookingPolicy < ApplicationPolicy
     user == record.skill.user
   end
 
+  def users_bookings?
+    user == record.skill.user
+  end
+
+  def my_bookings?
+    user == record.user
+  end
+
   class Scope < Scope
-
-
     def resolve
       scope.all
     end

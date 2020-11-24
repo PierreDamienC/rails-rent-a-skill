@@ -1,0 +1,20 @@
+<div class="container">
+  <% @users_skills.each do |bookings_skill| %>
+      <h1> <%= bookings_skill[0].skill.name.capitalize unless bookings_skill[0] == nil %> </h1>
+      <% bookings_skill.each do |booking| %>
+      <ul>
+        <li>
+          Email booker: <%= booking.user.email %>
+          Dates : from <%= booking.date_in %> to <%= booking.date_out %>
+          Statut :
+          <% if booking.accepted %>
+          <p> Accepted !</p>
+          <% else %>
+          <p>Waiting for your validation</p>
+          <%= link_to "View this booking", skill_booking_path(booking.skill, booking)%>
+        <% end %>
+        </li>
+      </ul>
+      <% end %>
+  <% end %>
+</div>

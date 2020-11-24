@@ -30,4 +30,9 @@ h1{
 
 h2{
   color:$burgundy;
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }

@@ -1,0 +1,8 @@
+<div class="container">
+	<% @user_bookings.each do |booking| %>
+		<h2>Skill : <%= booking.skill.name %> </h2>
+		<p>Owner : <%= booking.skill.user.email %> <%= booking.skill.user.email %> </p>
+		<p>From : <%= booking.date_in %> To: <%= booking.date_out %></p>
+		<p>Price per day : <%= booking.skill.price %></p>
+	<% end %>
+</div>
