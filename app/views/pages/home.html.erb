@@ -1,47 +1,10 @@
-<div>
-  <div class="navbar navbar-expand-sm navbar-light navbar-home align-items-center">
-      <%= link_to "/", class: "navbar-brand" do %>
-      <i class="far fa-star star-icon"></i>
-      <% end %>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <p id='title-navbar'>RENT A SKILL</p>
-
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="navbar-nav align-items-center">
-        <% if user_signed_in? %>
-            <%= link_to "Rent a skill", "#", class: "nav-link navbar-button" %>
-          <p class="nav-item">
-            <%= link_to "Share your skills", "#", class: "nav-link navbar-button" %>
-          </p>
-          <div class="nav-item dropdown">
-            <!-- Si on propose àl 'utilisateur de mettre sa photo on pourra utiliser ce code en remplacant l'url dans l'image tag par photo.user.key-->
-            <%= image_tag "https://media-exp1.licdn.com/dms/image/C4D03AQEzrTJ9_oBLww/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=Oj7fYb3NZhjB0zf1PlCw0eIHvHcS6g3ItdfNB9M0yL4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "My account", "#", class: "dropdown-item" %>
-              <%= link_to "My bookings", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </div>
-        <% else %>
-          <li class="nav-item" id='login'>
-            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1583169462080-824fc2ebed23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
-    <div class="container">
-      <h1>RENT A SKILL</h1>
-      <p >Start to figure out the superpowers available </p>
-    </div>
+<div class="banner">
+  <div class="container">
+    <h1 id="main-title" >RENT A SKILL</h1>
+    <p >Start to figure out the superpowers available </p>
   </div>
 </div>
+
 <div class="container">
   <div>
     <h1> Concept ?</h1>

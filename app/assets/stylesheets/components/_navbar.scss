@@ -21,7 +21,6 @@ $light-green: #49AC98;
   position: fixed;
   width: 100%;
   transition: background-color 0.5s;
-
 }
 
 .navbar-transparent {
@@ -100,5 +99,12 @@ $light-green: #49AC98;
 .dropdown-item{
   &:hover{
     background:transparentize($light-green, 0.8);
+  }
+}
+
+#title-navbar{
+  a{
+    text-decoration: none;
+    color: $light-green;
   }
 }

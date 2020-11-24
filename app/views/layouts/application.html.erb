@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsRentASkill</title>
+    <link rel="icon" href="http://example.com/favicon.png">
+    <title>Rent a skill</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,10 +14,16 @@
   </head>
 
   <body class="mt-5">
-    <% unless controller_name == "pages" && action_name=='home' %>
-    <%= render 'shared/navbar' %>
+    <% if controller_name == "pages" && action_name=='home' %>
+      <div class="navbar navbar-expand-sm navbar-light navbar-home align-items-center">
+        <%= render 'shared/navbar' %>
+    <% else %>
+     <div class="navbar navbar-expand-sm navbar-light navbar-rentskill align-items-center">
+       <%= render 'shared/navbar' %>
     <% end %>
+
     <%= render 'shared/flashes' %>
+
 
     <%= yield %>
   </body>

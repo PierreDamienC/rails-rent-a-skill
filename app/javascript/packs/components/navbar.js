@@ -3,7 +3,7 @@ const WhiteNavbar = () => {
     const title = document.querySelector('#title-navbar');
     if (navbar) {
       window.addEventListener('scroll', () => {
-      if (window.scrollY >= 550) {
+      if (window.scrollY >= 550){
         title.classList.remove('d-none');
         navbar.classList.remove('navbar-transparent');
       } else {
