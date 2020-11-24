@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   patch "/skills/:skill_id/bookings/:id", to: "bookings#validate", as: :validate_skill_booking
   get "/account/users-bookings", to: "bookings#users_bookings", as: :users_bookings
+  get "/account/my-bookings", to: "bookings#my_bookings", as: :my_bookings
 end
 
 
