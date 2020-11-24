@@ -5,7 +5,8 @@
         	<h1> <%= @skill.name %> </h1>
           <strong>Description:</strong>
         	<p> <%= @skill.description  %> </p>
-        <div class="links_show">
+          <%= cl_image_tag @skill.photo.key, crop: :fill %>
+        <div class="links_show mt-5">
         	<p> <%= link_to "Edit", edit_skill_path, class: "button"  %> </p>
         	<p> <%= link_to "Delete", skill_path(@skill), class: "button", method: :delete, data: { confirm: "Are you sure?" }  %> </p>
         	<p><%= link_to "Make a reservation", new_skill_booking_path(@skill),  class: "button" %></p>
