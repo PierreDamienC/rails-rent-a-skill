@@ -49,7 +49,7 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:name, :description, :price)
+    params.require(:skill).permit(:name, :description, :price, :photo)
   end
 
   def set_skill

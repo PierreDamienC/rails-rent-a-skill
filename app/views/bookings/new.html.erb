@@ -1,9 +1,15 @@
 <div class="container">
-  <%= simple_form_for [@skill, @booking] do |f|%>
-  <%= f.input :date_in %>
-  <%= f.input :date_out %>
-  <%= f.submit %>
-  <% end %>
 
-  <%= link_to "Back", skill_path(@skill) %>
+    <div class="form">
+      <h1>Book a skill</h1>
+      <p class="text-highlited" > <%= @skill.name %> </p>
+      <p>Please select on which dates you want to make a reservation for this skill</p>
+      <%= simple_form_for [@skill, @booking] do |f|%>
+      <%= f.input :date_in, as: :string, required: false, input_html: {class: "datepicker"}  %>
+      <%= f.input :date_out, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.submit "Create booking !"%>
+      <% end %>
+
+      <%= link_to "Back", skill_path(@skill), class: "button" %>
+  </div>
 </div>

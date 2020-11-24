@@ -20,10 +20,14 @@ $light-green: #49AC98;
   z-index: 10;
   position: fixed;
   width: 100%;
+  transition: background-color 0.5s;
+
 }
 
 .navbar-transparent {
   background-color: transparent;
+  transition: background-color 0.5s;
+
 }
 
 .navbar-rentskill .navbar-collapse {
@@ -91,4 +95,10 @@ $light-green: #49AC98;
 
 .dropdown:hover {
   cursor: pointer;
+}
+
+.dropdown-item{
+  &:hover{
+    background:transparentize($light-green, 0.8);
+  }
 }
