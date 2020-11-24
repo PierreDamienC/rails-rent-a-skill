@@ -6,5 +6,24 @@
   <%= @booking.date_out %>
   Confirmation de validation :
   <%= @booking.accepted %>
+  Bailleur:
+  <%= @booking.skill.user.email %>
+  Loueur
+  <%= @booking.user.email %>
   </p>
+
+  
+  <% if policy(@booking).validate? %>
+    <% if @booking.accepted %>
+      <p> Accepted !</p>
+      <% else %>
+      <%= link_to "Confirm Booking", validate_skill_booking_path(@booking.skill, @booking), method: :patch %>
+    <% end %>
+  <% else %>
+     <% if @booking.accepted %>
+      <p> Accepted !</p>
+      <% else %>
+      <p>Pending..</p>
+    <% end %>
+  <% end %>
 </div>
