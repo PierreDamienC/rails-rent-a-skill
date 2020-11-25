@@ -40,3 +40,10 @@
   width: 40px;
 }
 
+.card-trip-infos p {
+  text-decoration:none;
+  color: rgb(150,150,150);
+  &:hover {
+    text-decoration: none;
+  }
+}
