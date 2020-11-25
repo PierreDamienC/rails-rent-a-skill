@@ -1,8 +1,41 @@
 <div class="container">
-	<% @user_bookings.each do |booking| %>
-		<h2>Skill : <%= booking.skill.name %> </h2>
-		<p>Owner : <%= booking.skill.user.email %> <%= booking.skill.user.email %> </p>
-		<p>From : <%= booking.date_in %> To: <%= booking.date_out %></p>
-		<p>Price per day : <%= booking.skill.price %></p>
-	<% end %>
+  <h1>My bookings</h1>
+
+  <div class="tabs-bar">
+    <%= link_to 'To come',  my_bookings_path %>
+    <%= link_to 'Previous', my_bookings_path  %>
+  </div>
+    <div class="row">
+      <% @user_bookings.each do |booking| %>
+      <%= link_to skill_booking_path(booking.skill, booking) do   %>
+      <div class="col-sm">
+        <div class="card-trip">
+          <% if booking.skill.photo.attachment %>
+            <%= cl_image_tag booking.skill.photo.key, crop: :fill %>
+          <% else  %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <p> <%= booking.date_in %> to <%= booking.date_out %> </p>
+              <h2><%= booking.skill.name %></h2>
+              <p><%= booking.skill.description %></p>
+            </div>
+            <h2 class="card-trip-pricing">
+              <% if booking.accepted %>
+                <button class='accepted-tag'> Accepted</button>
+              <% else %>
+                <button class='pending-tag'>Pending...</button>
+              <% end %>
+            </h2>
+
+            <!-- Mettre l'avatar-->
+
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
 </div>

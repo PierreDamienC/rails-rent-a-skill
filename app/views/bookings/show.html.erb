@@ -1,29 +1,31 @@
 <div class="container">
-  <h1>Your Reservation :</h1>
-  <p>Date in:
-  <%= @booking.date_in %>
-  Date out:
-  <%= @booking.date_out %>
-  Confirmation de validation :
-  <%= @booking.accepted %>
-  Bailleur:
-  <%= @booking.skill.user.email %>
-  Loueur
-  <%= @booking.user.email %>
-  </p>
+  <div>
+    <% if policy(@booking).validate? %>
+      <h1> <%= @booking.user.first_name %>'s reservation </h1>
+      <p>From: <%= @booking.date_in %> </p>
+      <p>To : <%= @booking.date_out %></p>
+      <p>E-mail of <%= @booking.user.first_name %> : <%= @booking.user.email %> </p>
+      <p>Price per day : <%= @booking.skill.price %> € </p>
+    <% else %>
+      <h1>Your reservation</h1>
+      <p>From : <%= @booking.date_in %> </p>
+      <p>To : <%= @booking.date_out %></p>
+      <p>E-mail of <%= @booking.skill.user.first_name%>: <%= @booking.skill.user.email %> </p>
+      <p>Price per day : <%= @booking.skill.price %> €</p>
+    <% end %>
 
-  
-  <% if policy(@booking).validate? %>
-    <% if @booking.accepted %>
-      <p> Accepted !</p>
-      <% else %>
-      <%= link_to "Confirm Booking", validate_skill_booking_path(@booking.skill, @booking), method: :patch %>
+    <% if policy(@booking).validate? %>
+      <% if @booking.accepted %>
+        <button class='accepted-tag'>Accepted</button>
+        <% else %>
+        <%= link_to "Confirm Booking", validate_skill_booking_path(@booking.skill, @booking), method: :patch, class: 'button' %>
+      <% end %>
+    <% else %>
+       <% if @booking.accepted %>
+        <p> Accepted !</p>
+        <% else %>
+        <p>Pending..</p>
+      <% end %>
     <% end %>
-  <% else %>
-     <% if @booking.accepted %>
-      <p> Accepted !</p>
-      <% else %>
-      <p>Pending..</p>
-    <% end %>
-  <% end %>
+  </div>
 </div>
