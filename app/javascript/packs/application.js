@@ -31,6 +31,8 @@ import flatpickr from "flatpickr";
 // Internal imports, e.g:
 import { WhiteNavbar } from './components/navbar'
 import { dynamicRating } from './components/fillstars'
+import { buttonReviewFunction } from './components/hide_review'
+
 
 // import flatpickr, which is a module for chosing a date in a calendar
 
@@ -41,4 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   WhiteNavbar();
   flatpickr(".datepicker", {});
   dynamicRating();
+  buttonReviewFunction();
 });

@@ -50,3 +50,21 @@
   padding: 16px;
 }
 
+//classe de carte pour la show
+.card-description{
+  background-color: white;
+  width:400px;
+  margin:10px auto;
+  border-radius:10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding:20px;
+  color:gray;
+  p{
+    margin:0;
+    text-align:left;
+  }
+  h1{
+    color:$light-green;
+  }
+}
+
