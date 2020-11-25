@@ -1,50 +1,70 @@
 <div class="banner">
   <div class="container">
-    <h1 id="main-title" >RENT A SKILL</h1>
+    <h1 id="main-title" data-aos="fade-right" data-aos-duration="3000" >RENT A SKILL</h1>
     <p >Start to figure out the superpowers available </p>
   </div>
 </div>
 
 <div class="container">
   <div>
-    <h2>OUR CONCEPT</h2>
-    <p>We believe people have skills. Great and unique skills. With us, you can use other people's abilities. Just like you'd rent a flat, you can now rent skills !</p>
-  </div>
-
-  <h2>LATEST SKILLS</h2>
-
-  <div class="row">
-
-    <% @skills.each do |skill| %>
-      <%= link_to skill_path(skill) do   %>
-          <div class= col-sm>
-            <div class="card-product">
-              <% if skill.photo.attachment %>
-                <%= cl_image_tag skill.photo.key, crop: :fill %>
-              <% else  %>
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <% end %>
-              <div class="card-product-infos">
-                <h2 class="product-name"><%= skill.name %></h2>
-                <p><%= skill.description  %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% end %>
-
-          
-  </div>
-
-  <div class="d-flex justify-content-center align-items-center">
-    <%= link_to "More Skills", skills_path, class: "button big" %>
+    <h2 data-aos="zoom-in">OUR CONCEPT</h2>
+    <p class="quote" >We believe people have skills. Great and <strong>unique</strong> skills. With us, you can use <strong>other people's abilities</strong>. Just like you'd rent a flat, you can now rent skills !</p>
   </div>
 
   <div>
-    <h1>Reviews</h1>
-  </div>
-</div>
+    <h2 data-aos="flip-down">LATEST SKILLS</h2>
 
+    <div class="row">
+      <% @skills.each do |skill| %>
+        <%= link_to skill_path(skill) do   %>
+            <div class= col-sm>
+              <div class="card-product" data-aos="zoom-in">
+                <% if skill.photo.attachment %>
+                  <%= cl_image_tag skill.photo.key, crop: :fill %>
+                <% else  %>
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <% end %>
+                <div class="card-product-infos">
+                  <h2 class="product-name"><%= skill.name %></h2>
+                  <p><%= skill.description  %></p>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div>
+    <h2 data-aos="zoom-in">JUST GOOD STUFF</h2>
+    <div class="image-asset">
+      <img data-aos="fade-right" src="https://res.cloudinary.com/dsaxkp6xo/image/upload/v1606305583/image_rent_1_p9grwe.png" alt="">
+      <div class="asset" data-aos="fade-left">
+        <div class="asset-list">
+          <h5>Good for you</h5>
+          <p>You will be able to enjoy the abilities of people all around the world.</p>
+        </div>
+        <div class="asset-list">
+          <h5>Have fun</h5>
+          <p>Intellectual, physical, emotional, and everything you can imagine, you can have it.</p>
+        </div>
+        <div class="asset-list">
+          <h5>Show off</h5>
+          <p>No matter why you rent a skill, it's always gonna be good for your showing it off. Impress a girl ? Easy ! Excell an exam ! Sure !</p>
+      <div class="d-flex justify-content-center align-items-center">
+       <%= link_to "More Skills", skills_path, class: "button big" %>
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+    <h2 data-aos="zoom-in">REVIEWS</h2>
+
+  </div>
+
+</div>
 
 <div class="footer">
   <div class="footer-links">

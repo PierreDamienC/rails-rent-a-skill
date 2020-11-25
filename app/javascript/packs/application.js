@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+// import AOS for animated cards on the homepage
+require("../plugins/init_flip_card")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -31,6 +33,7 @@ import { WhiteNavbar } from './components/navbar'
 // import { initSelect2 } from '../components/init_select2';
 
 // import flatpickr, which is a module for chosing a date in a calendar
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
