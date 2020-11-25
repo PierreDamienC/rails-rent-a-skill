@@ -19,4 +19,35 @@
       </div>
     <div>
   </div>
+
+  <div class="review-form m-5">
+    <h2>Add Review</h2>
+    <%= simple_form_for [@skill, @review] do |f|%>
+      <%= f.input :content %>
+      <%= f.input :rating, as: :hidden %>
+      <div class="my-3">
+        <% 5.times do |index| %>
+          <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= f.submit "Submit", class: "btn button" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <ul>
+    <% @skill.reviews.order(id: :desc).each do |review| %>
+      <li>
+      <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %> :
+      <% review.rating.times do  %>
+        <i class='fas fa-star'></i>
+      <% end %>
+      <%= review.content %>
+      <%= review.created_at.strftime("(at %H:%M on %Y-%m-%d)") %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 </div>
