@@ -34,3 +34,19 @@
   height: 40px;
   margin: 30px 0px;
 }
+
+.button-simple-form {
+  color: white !important;
+  height: 35px !important;
+  &:hover {
+    color: $light-green !important;
+    border: 1px solid !important;
+    background-color: white !important;
+    font-weight: bolder !important;
+    text-decoration: none !important;
+  }
+}
+
+.form a {
+  color: white;
+}
