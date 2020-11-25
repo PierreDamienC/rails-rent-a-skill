@@ -22,9 +22,9 @@
       <% end %>
     <% else %>
        <% if @booking.accepted %>
-        <p> Accepted !</p>
+        <button class='accepted-tag'>Accepted</button>
         <% else %>
-        <p>Pending..</p>
+        <button class='pending-tag'>Pending...</button>
       <% end %>
     <% end %>
   </div>
