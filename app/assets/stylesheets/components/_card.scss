@@ -10,6 +10,9 @@
   border-radius: 15px;
 }
 
+.card-product:hover {
+  text-decoration: none !important;
+}
 .card-product img {
   height: 100%;
   width: 150px;
@@ -27,6 +30,7 @@
   text-decoration:none;
 }
 
+
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
@@ -39,3 +43,4 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
