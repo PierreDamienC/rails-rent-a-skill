@@ -15,51 +15,36 @@
 
   <div class="row">
 
-  <% @skills.each do |skill| %>
-    <%= link_to skill_path(skill) do   %>
-        <div class= col-sm>
-           <div class="card-product">
-            <% if skill.photo.attachment %>
-              <%= cl_image_tag skill.photo.key, crop: :fill %>
-            <% else  %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <% end %>
-            <div class="card-product-infos">
-              <h2 class="product-name"><%= skill.name %></h2>
-              <p><%= skill.description  %></p>
+    <% @skills.each do |skill| %>
+      <%= link_to skill_path(skill) do   %>
+          <div class= col-sm>
+            <div class="card-product">
+              <% if skill.photo.attachment %>
+                <%= cl_image_tag skill.photo.key, crop: :fill %>
+              <% else  %>
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <% end %>
+              <div class="card-product-infos">
+                <h2 class="product-name"><%= skill.name %></h2>
+                <p><%= skill.description  %></p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-  <% end %>
+    <% end %>
+    <% end %>
 
           
   </div>
-    <div>
-      <h1>Reviews</h1>
-    </div>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <%= link_to "More Skills", skills_path, class: "button big" %>
+  </div>
+
+  <div>
+    <h1>Reviews</h1>
+  </div>
 </div>
 
-Lorem ipsum dolor, sit, amet consectetur adipisicing elit. In, ipsum odio esse ratione optio, voluptatem. Laborum ea pariatur repellendus, dolor sit necessitatibus porro cum! Eius officia exercitationem, ratione perspiciatis sit!
-Labore quos voluptates quisquam eveniet alias quidem excepturi tenetur magnam corrupti vitae. Voluptatibus perspiciatis odio, unde, dolorum rem, error ipsa, voluptatum nisi nulla dicta illo. Inventore, accusantium expedita ratione quo.
-Maxime totam quo est quam recusandae, laborum nulla rem doloribus quisquam unde quibusdam eius distinctio placeat nobis nam saepe sint fuga, consequatur, perspiciatis explicabo corporis quidem cumque officia. Maxime, amet.
-Magni architecto recusandae, repellat iure necessitatibus error reiciendis et esse! Quo delectus facilis ut molestiae, consectetur officia sunt numquam sapiente, accusantium quam saepe quaerat ad ducimus voluptas aliquid, recusandae, quos!
-Similique, necessitatibus tenetur et laborum optio quisquam, reiciendis. Laudantium libero minus commodi perspiciatis cum error sint et soluta aperiam exercitationem necessitatibus magni odit ullam illum a accusamus optio obcaecati, illo?
-Dolore inventore a dolorum libero, odit animi, voluptatem similique iusto unde qui ratione, debitis! Rem repellat animi repudiandae quas incidunt sapiente in rerum reiciendis quae! Hic in eum nesciunt corrupti.
-Voluptatem hic, voluptas eveniet ipsam saepe quis dolores aliquam illum, sapiente amet natus atque omnis non explicabo dolorum odio iste tempora culpa dignissimos dicta? Debitis, ipsam quas ducimus modi nulla.
-A, quod accusantium beatae sed nisi! Labore facilis accusamus impedit perferendis saepe blanditiis dicta culpa dolore dignissimos, fugit laudantium itaque molestiae, alias harum odit vero aperiam numquam rem iusto quibusdam.
-Asperiores temporibus, reiciendis necessitatibus eaque tenetur a magni? Voluptates quis numquam fuga at ea similique minima unde animi, reiciendis pariatur sint ullam commodi illum odit laboriosam dolorem exercitationem soluta accusamus.
-Eveniet culpa, consectetur repudiandae nulla nostrum ea ipsa accusamus impedit voluptate beatae veniam doloremque nam vel itaque est enim sint odio esse, voluptatibus optio? Accusantium explicabo incidunt dolorum officiis quibusdam?
-Lorem ipsum dolor, sit, amet consectetur adipisicing elit. In, ipsum odio esse ratione optio, voluptatem. Laborum ea pariatur repellendus, dolor sit necessitatibus porro cum! Eius officia exercitationem, ratione perspiciatis sit!
-Labore quos voluptates quisquam eveniet alias quidem excepturi tenetur magnam corrupti vitae. Voluptatibus perspiciatis odio, unde, dolorum rem, error ipsa, voluptatum nisi nulla dicta illo. Inventore, accusantium expedita ratione quo.
-Maxime totam quo est quam recusandae, laborum nulla rem doloribus quisquam unde quibusdam eius distinctio placeat nobis nam saepe sint fuga, consequatur, perspiciatis explicabo corporis quidem cumque officia. Maxime, amet.
-Magni architecto recusandae, repellat iure necessitatibus error reiciendis et esse! Quo delectus facilis ut molestiae, consectetur officia sunt numquam sapiente, accusantium quam saepe quaerat ad ducimus voluptas aliquid, recusandae, quos!
-Similique, necessitatibus tenetur et laborum optio quisquam, reiciendis. Laudantium libero minus commodi perspiciatis cum error sint et soluta aperiam exercitationem necessitatibus magni odit ullam illum a accusamus optio obcaecati, illo?
-Dolore inventore a dolorum libero, odit animi, voluptatem similique iusto unde qui ratione, debitis! Rem repellat animi repudiandae quas incidunt sapiente in rerum reiciendis quae! Hic in eum nesciunt corrupti.
-Voluptatem hic, voluptas eveniet ipsam saepe quis dolores aliquam illum, sapiente amet natus atque omnis non explicabo dolorum odio iste tempora culpa dignissimos dicta? Debitis, ipsam quas ducimus modi nulla.
-A, quod accusantium beatae sed nisi! Labore facilis accusamus impedit perferendis saepe blanditiis dicta culpa dolore dignissimos, fugit laudantium itaque molestiae, alias harum odit vero aperiam numquam rem iusto quibusdam.
-Asperiores temporibus, reiciendis necessitatibus eaque tenetur a magni? Voluptates quis numquam fuga at ea similique minima unde animi, reiciendis pariatur sint ullam commodi illum odit laboriosam dolorem exercitationem soluta accusamus.
-Eveniet culpa, consectetur repudiandae nulla nostrum ea ipsa accusamus impedit voluptate beatae veniam doloremque nam vel itaque est enim sint odio esse, voluptatibus optio? Accusantium explicabo incidunt dolorum officiis quibusdam?
 
 <div class="footer">
   <div class="footer-links">
