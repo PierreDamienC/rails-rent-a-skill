@@ -1,53 +1,66 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6 col text-center">
+      <%= cl_image_tag @skill.photo.key, class: "photo" %>
+      <div class="card-description">
         <h1> <%= @skill.name %> </h1>
-        <strong>Description:</strong>
-        <p> <%= @skill.description  %> </p>
-      <%= cl_image_tag @skill.photo.key, crop: :fill, class: "photo" %>
+        <p> A great skilled owned by <%= @skill.user.first_name%> <%= @skill.user.last_name %></p>
+        <p>Avalaible since <%= @skill.created_at.strftime("%d %b. %Y")%> </p>
+        <p> </br><%= @skill.description %> </p>
         <div class="d-flex justify-content-center mt-5">
-          <% if policy(@skill).edit? %>
-            <p> <%= link_to "Edit", edit_skill_path, class: "button"  %> </p>
-          <% end %>
-          <% if policy(@skill).destroy? %>
-            <p> <%= link_to "Delete", skill_path(@skill), class: "button", method: :delete, data: { confirm: "Are you sure?" }  %> </p>
-          <% end %>
-          <% unless policy(@skill).edit? == true  %>
-            <p><%= link_to "Make a reservation", new_skill_booking_path(@skill),  class: "button" %></p>
-          <% end %>
-          <p><%= link_to "Back", skills_path, class: "button" %></p>
+            <% if policy(@skill).edit? %>
+              <p> <%= link_to "Edit", edit_skill_path, class: "button"  %> </p>
+            <% end %>
+            <% if policy(@skill).destroy? %>
+              <p> <%= link_to "Delete", skill_path(@skill), class: "button", method: :delete, data: { confirm: "Are you sure?" }  %> </p>
+            <% end %>
+            <% unless policy(@skill).edit? == true  %>
+              <p><%= link_to "Make a reservation", new_skill_booking_path(@skill),  class: "button" %></p>
+            <% end %>
+            <p><%= link_to "Back", skills_path, class: "button" %></p>
         </div>
+      </div>
     </div>
   </div>
 
-  <div class="review-form m-5">
-    <h2>Add Review</h2>
-    <%= simple_form_for [@skill, @review] do |f|%>
-      <%= f.input :content %>
-      <%= f.input :rating, as: :hidden %>
-      <div class="my-3">
-        <% 5.times do |index| %>
-          <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
+<%= console %>
+  <div id="reviews" class="card-description">
+    <h4 class="text-center">Reviews</h4>
+    <% if @skill.reviews == [] %>
+      <p>There are no reviews yet</p>
+    <% else %>
+      <ul>
+      <% @skill.reviews.order(id: :desc).each do |review| %>
+        <li class="list-unstyled p-1">
+        <strong><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></strong>   said :
+        <% review.rating.times do  %>
+          <i class='fas fa-star'></i>
         <% end %>
-      </div>
-      <div class="d-flex justify-content-center">
-        <%= f.submit "Submit", class: "btn button" %>
-      </div>
-    <% end %>
-  </div>
-
-  <div>
-    <ul>
-    <% @skill.reviews.order(id: :desc).each do |review| %>
-      <li class="list-unstyled">
-      <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %> :
-      <% review.rating.times do  %>
-        <i class='fas fa-star'></i>
+        <%= review.content %>
+        <%= review.created_at.strftime("(at %H:%M on %Y-%m-%d)") %>
+        </li>
+        <% end %>
       <% end %>
-      <%= review.content %>
-      <%= review.created_at.strftime("(at %H:%M on %Y-%m-%d)") %>
-      </li>
-    <% end %>
     </ul>
   </div>
+
+
+  <div class="card-description">
+    <div class="button medium" id="leavereview">Leave a review</div>
+    <div id="tohide" class="d-none">
+      <%= simple_form_for [@skill, @review] do |f|%>
+        <%= f.input :content %>
+        <%= f.input :rating, as: :hidden %>
+        <div class="my-3">
+          <% 5.times do |index| %>
+            <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
+          <% end %>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit "Submit", class: "btn button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>

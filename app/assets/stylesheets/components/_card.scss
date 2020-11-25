@@ -50,3 +50,45 @@
   padding: 16px;
 }
 
+//classe de carte pour la show
+.card-description{
+  background-color: white;
+  width:400px;
+  margin:10px auto;
+  border-radius:10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding:20px;
+  color:gray;
+  p{
+    margin:0;
+    text-align:left;
+  }
+  h1{
+    color:$light-green;
+  }
+}
+
+.gray-card-container {
+  background-color: rgba(255,255,255,1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 20px;
+  padding-top: 0px;
+}
+.card-your-resa {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  padding: 10px 20px;
+  padding-bottom: 20px;
+  margin: 25px auto;
+  width:105%;
+  color: gray;
+}
+
+.card-your-resa h1 {
+  font-size: 30px;
+  color: $light-green;
+}
+

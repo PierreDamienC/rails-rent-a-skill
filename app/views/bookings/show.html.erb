@@ -1,31 +1,47 @@
 <div class="container">
-  <div>
-    <% if policy(@booking).validate? %>
-      <h1> <%= @booking.user.first_name %>'s reservation </h1>
-      <p>From: <%= @booking.date_in %> </p>
-      <p>To : <%= @booking.date_out %></p>
-      <p>E-mail of <%= @booking.user.first_name %> : <%= @booking.user.email %> </p>
-      <p>Price per day : <%= @booking.skill.price %> € </p>
-    <% else %>
-      <h1>Your reservation</h1>
-      <p>From : <%= @booking.date_in %> </p>
-      <p>To : <%= @booking.date_out %></p>
-      <p>E-mail of <%= @booking.skill.user.first_name%>: <%= @booking.skill.user.email %> </p>
-      <p>Price per day : <%= @booking.skill.price %> €</p>
-    <% end %>
-
-    <% if policy(@booking).validate? %>
-      <% if @booking.accepted %>
-        <button class='accepted-tag'>Accepted</button>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col text-left">
+      <div class='card-your-resa'>
+        <% if current_user == @booking.skill.user  %>
+          <h1> <%= @booking.user.first_name %>'s reservation </h1>
         <% else %>
-        <%= link_to "Confirm Booking", validate_skill_booking_path(@booking.skill, @booking), method: :patch, class: 'button' %>
-      <% end %>
-    <% else %>
-       <% if @booking.accepted %>
-        <button class='accepted-tag'>Accepted</button>
-        <% else %>
-        <button class='pending-tag'>Pending...</button>
-      <% end %>
-    <% end %>
+          <h1>Your reservation</h1>
+        <% end %>
+        <!-- Modifier avec l'avatar du client et du loueur -->
+        <div class='mb-3 parent'>
+        <%= image_tag "https://media-exp1.licdn.com/dms/image/C4D03AQEzrTJ9_oBLww/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=Oj7fYb3NZhjB0zf1PlCw0eIHvHcS6g3ItdfNB9M0yL4", class: "avatar dropdown-toggle av-border im-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag "https://assets.sport.francetvinfo.fr/sites/default/files/styles/large_16_9/public/2020-03/000_1ia311.jpg?h=763b10cd&itok=-ewHgPuK", class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        </div>
+        <div class='text-left'>
+          <% if policy(@booking).validate? %>
+            <p>From <%= @booking.date_in %> to : <%= @booking.date_out %></p>
+            <p>E-mail of <%= @booking.user.first_name %> : <%= @booking.user.email %> </p>
+            <p>Price per day : <%= @booking.skill.price %> € </p>
+          <% else %>
+            <p>From <%= @booking.date_in %> to <%= @booking.date_out %></p>
+            <p>E-mail of <%= @booking.skill.user.first_name%>: <%= @booking.skill.user.email %> </p>
+            <p>Price per day : <%= @booking.skill.price %> €</p>
+          <% end %>
+        </div>
+        <div class='text-right'>
+          <% if policy(@booking).validate? %>
+            <% if @booking.accepted %>
+              <button class='accepted-tag'>Accepted</button>
+              <% else %>
+              <%= link_to "Confirm Booking", validate_skill_booking_path(@booking.skill, @booking), method: :patch, class: 'button' %>
+            <% end %>
+          <% else %>
+           <% if @booking.accepted %>
+            <button class='accepted-tag'>Accepted</button>
+            <% else %>
+            <button class='pending-tag'>Pending...</button>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+      <div class="text-center">
+        <%= link_to 'Back', my_bookings_path, class: 'button'   %>
+      </div>
+    </div>
   </div>
 </div>

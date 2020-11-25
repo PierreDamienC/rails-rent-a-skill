@@ -31,3 +31,19 @@
 
 en:
   hello: "Hello world"
+  pundit:
+   default: 'You cannot perform this action.'
+   skill_policy:
+     update?: 'You cannot edit this skill!'
+     create?: 'You cannot create skills!'
+     destroy?: 'You cannot delete this skill!'
+   booking_policy:
+     show?: 'You cannot see this booking'
+     create?: 'You cannot create bookings'
+     destroy: 'You cannot delete this booking'
+     update?: 'You cannot edit this booking'
+   review_policy:
+    show?: 'You cannot see this review'
+    create?: 'You cannot create reviews'
+    destroy: 'You cannot delete this review'
+    update?: 'You cannot edit this review'

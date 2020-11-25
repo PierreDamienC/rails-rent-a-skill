@@ -2,9 +2,11 @@
 h2{
     text-align: center;
     margin:50px auto 100px auto;
-    text-decoration: underline $solid-pink 10px;
-    color:$solid-pink;
+}
 
+.strong-underline{
+  color:$burgundy;
+  text-decoration: underline $solid-pink 10px;
 }
 
 .quote{

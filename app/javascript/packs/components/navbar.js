@@ -2,10 +2,12 @@ const WhiteNavbar = () => {
     const navbar = document.querySelector('.navbar-home');
     const title = document.querySelector('#title-navbar');
     const star = document.querySelector('#star-home');
+    const mainTitleHome = document.getElementById("#main-title");
+
     if (navbar) {
       navbar.classList.add('navbar-transparent')
     };
-    if (title) { 
+    if (title && mainTitleHome) { 
       title.classList.add('d-none');
     };
 
@@ -29,5 +31,5 @@ const WhiteNavbar = () => {
     }
 };
 
-export {WhiteNavbar}
+export {WhiteNavbar};
 
