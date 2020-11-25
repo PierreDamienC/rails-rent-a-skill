@@ -23,4 +23,8 @@
   color: $light-green;
 }
 
+.fix_footer {
+min-height: calc(100vh - 156px);
+}
+
 
