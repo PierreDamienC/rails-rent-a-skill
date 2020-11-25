@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+h2{
+    text-align: center;
+    margin:50px auto 100px auto;
+    text-decoration: underline $solid-pink 10px;
+    color:$solid-pink;
+
+}
+
+.quote{
+  width:70%;
+  margin:0 auto;
+  text-align: center;
+
+}
+
+.image-asset{
+  display: flex;
+  align-items:center;
+  margin-bottom: 100px;
+  img{
+    width:660px;
+    height:450px;
+  }
+  h5{
+    color:$solid-pink;
+
+  }
+}
+
+.asset{
+  padding:40px;
+}

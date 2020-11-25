@@ -1,65 +1,69 @@
 <div class="banner">
   <div class="container">
-    <h1 id="main-title" >RENT A SKILL</h1>
+    <h1 id="main-title" data-aos="fade-right" data-aos-duration="3000" >RENT A SKILL</h1>
     <p >Start to figure out the superpowers available </p>
   </div>
 </div>
 
 <div class="container">
   <div>
-    <h2>OUR CONCEPT</h2>
-    <p>We believe people have skills. Great and unique skills. With us, you can use other people's abilities. Just like you'd rent a flat, you can now rent skills !</p>
+    <h2 data-aos="zoom-in">OUR CONCEPT</h2>
+    <p class="quote" >We believe people have skills. Great and <strong>unique</strong> skills. With us, you can use <strong>other people's abilities</strong>. Just like you'd rent a flat, you can now rent skills !</p>
   </div>
 
-  <h2>LATEST SKILLS</h2>
+  <div>
+    <h2 data-aos="flip-down">LATEST SKILLS</h2>
 
-  <div class="row">
+    <div class="row">
+      <% @skills.each do |skill| %>
+        <%= link_to skill_path(skill) do   %>
+            <div class= col-sm>
+              <div class="card-product" data-aos="zoom-in">
+                <% if skill.photo.attachment %>
+                  <%= cl_image_tag skill.photo.key, crop: :fill %>
+                <% else  %>
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <% end %>
+                <div class="card-product-infos">
+                  <h2 class="product-name"><%= skill.name %></h2>
+                  <p><%= skill.description  %></p>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
 
-  <% @skills.each do |skill| %>
-    <%= link_to skill_path(skill) do   %>
-        <div class= col-sm>
-           <div class="card-product">
-            <% if skill.photo.attachment %>
-              <%= cl_image_tag skill.photo.key, crop: :fill %>
-            <% else  %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <% end %>
-            <div class="card-product-infos">
-              <h2 class="product-name"><%= skill.name %></h2>
-              <p><%= skill.description  %></p>
+  </div>
+
+  <div>
+    <h2 data-aos="zoom-in">JUST GOOD STUFF</h2>
+    <div class="image-asset">
+      <img data-aos="fade-right" src="https://res.cloudinary.com/dsaxkp6xo/image/upload/v1606305583/image_rent_1_p9grwe.png" alt="">
+      <div class="asset" data-aos="fade-left">
+        <div class="asset-list">
+          <h5>Good for you</h5>
+          <p>You will be able to enjoy the abilities of people all around the world.</p>
+        </div>
+        <div class="asset-list">
+          <h5>Have fun</h5>
+          <p>Intellectual, physical, emotional, and everything you can imagine, you can have it.</p>
+        </div>
+        <div class="asset-list">
+          <h5>Show off</h5>
+          <p>No matter why you rent a skill, it's always gonna be good for your showing it off. Impress a girl ? Easy ! Excell an exam ! Sure !</p>
+      <p>ADD BUTTON TO THE LIST</p>
         </div>
       </div>
-    </div>
-  <% end %>
-  <% end %>
 
-          
+    </div>
   </div>
-    <div>
-      <h1>Reviews</h1>
-    </div>
-</div>
 
-Lorem ipsum dolor, sit, amet consectetur adipisicing elit. In, ipsum odio esse ratione optio, voluptatem. Laborum ea pariatur repellendus, dolor sit necessitatibus porro cum! Eius officia exercitationem, ratione perspiciatis sit!
-Labore quos voluptates quisquam eveniet alias quidem excepturi tenetur magnam corrupti vitae. Voluptatibus perspiciatis odio, unde, dolorum rem, error ipsa, voluptatum nisi nulla dicta illo. Inventore, accusantium expedita ratione quo.
-Maxime totam quo est quam recusandae, laborum nulla rem doloribus quisquam unde quibusdam eius distinctio placeat nobis nam saepe sint fuga, consequatur, perspiciatis explicabo corporis quidem cumque officia. Maxime, amet.
-Magni architecto recusandae, repellat iure necessitatibus error reiciendis et esse! Quo delectus facilis ut molestiae, consectetur officia sunt numquam sapiente, accusantium quam saepe quaerat ad ducimus voluptas aliquid, recusandae, quos!
-Similique, necessitatibus tenetur et laborum optio quisquam, reiciendis. Laudantium libero minus commodi perspiciatis cum error sint et soluta aperiam exercitationem necessitatibus magni odit ullam illum a accusamus optio obcaecati, illo?
-Dolore inventore a dolorum libero, odit animi, voluptatem similique iusto unde qui ratione, debitis! Rem repellat animi repudiandae quas incidunt sapiente in rerum reiciendis quae! Hic in eum nesciunt corrupti.
-Voluptatem hic, voluptas eveniet ipsam saepe quis dolores aliquam illum, sapiente amet natus atque omnis non explicabo dolorum odio iste tempora culpa dignissimos dicta? Debitis, ipsam quas ducimus modi nulla.
-A, quod accusantium beatae sed nisi! Labore facilis accusamus impedit perferendis saepe blanditiis dicta culpa dolore dignissimos, fugit laudantium itaque molestiae, alias harum odit vero aperiam numquam rem iusto quibusdam.
-Asperiores temporibus, reiciendis necessitatibus eaque tenetur a magni? Voluptates quis numquam fuga at ea similique minima unde animi, reiciendis pariatur sint ullam commodi illum odit laboriosam dolorem exercitationem soluta accusamus.
-Eveniet culpa, consectetur repudiandae nulla nostrum ea ipsa accusamus impedit voluptate beatae veniam doloremque nam vel itaque est enim sint odio esse, voluptatibus optio? Accusantium explicabo incidunt dolorum officiis quibusdam?
-Lorem ipsum dolor, sit, amet consectetur adipisicing elit. In, ipsum odio esse ratione optio, voluptatem. Laborum ea pariatur repellendus, dolor sit necessitatibus porro cum! Eius officia exercitationem, ratione perspiciatis sit!
-Labore quos voluptates quisquam eveniet alias quidem excepturi tenetur magnam corrupti vitae. Voluptatibus perspiciatis odio, unde, dolorum rem, error ipsa, voluptatum nisi nulla dicta illo. Inventore, accusantium expedita ratione quo.
-Maxime totam quo est quam recusandae, laborum nulla rem doloribus quisquam unde quibusdam eius distinctio placeat nobis nam saepe sint fuga, consequatur, perspiciatis explicabo corporis quidem cumque officia. Maxime, amet.
-Magni architecto recusandae, repellat iure necessitatibus error reiciendis et esse! Quo delectus facilis ut molestiae, consectetur officia sunt numquam sapiente, accusantium quam saepe quaerat ad ducimus voluptas aliquid, recusandae, quos!
-Similique, necessitatibus tenetur et laborum optio quisquam, reiciendis. Laudantium libero minus commodi perspiciatis cum error sint et soluta aperiam exercitationem necessitatibus magni odit ullam illum a accusamus optio obcaecati, illo?
-Dolore inventore a dolorum libero, odit animi, voluptatem similique iusto unde qui ratione, debitis! Rem repellat animi repudiandae quas incidunt sapiente in rerum reiciendis quae! Hic in eum nesciunt corrupti.
-Voluptatem hic, voluptas eveniet ipsam saepe quis dolores aliquam illum, sapiente amet natus atque omnis non explicabo dolorum odio iste tempora culpa dignissimos dicta? Debitis, ipsam quas ducimus modi nulla.
-A, quod accusantium beatae sed nisi! Labore facilis accusamus impedit perferendis saepe blanditiis dicta culpa dolore dignissimos, fugit laudantium itaque molestiae, alias harum odit vero aperiam numquam rem iusto quibusdam.
-Asperiores temporibus, reiciendis necessitatibus eaque tenetur a magni? Voluptates quis numquam fuga at ea similique minima unde animi, reiciendis pariatur sint ullam commodi illum odit laboriosam dolorem exercitationem soluta accusamus.
-Eveniet culpa, consectetur repudiandae nulla nostrum ea ipsa accusamus impedit voluptate beatae veniam doloremque nam vel itaque est enim sint odio esse, voluptatibus optio? Accusantium explicabo incidunt dolorum officiis quibusdam?
+  <div>
+    <h2 data-aos="zoom-in">REVIEWS</h2>
+
+  </div>
+</div>
 
 <div class="footer">
   <div class="footer-links">
