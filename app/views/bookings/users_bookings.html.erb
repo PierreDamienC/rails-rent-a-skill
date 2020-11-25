@@ -1,32 +1,31 @@
 <div class="container">
   <div style= 'margin-top: 100px;'>
-  <% @users_skills.each do |bookings_skill| %>
-  <% unless bookings_skill[0] == nil %>
-    <div class='gray-card-container'>
-      <h1> <%= bookings_skill[0].skill.name.capitalize unless bookings_skill[0] == nil %> </h1>
-      <% bookings_skill.each do |booking| %>
-      <%= link_to skill_booking_path(booking.skill, booking) do   %>
-        <div class="card-users-booking">
-          <!-- Add booker avatar-->
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-users-booking-infos d-flex">
-              <p id='name-booker'><%= booking.user.first_name %></p>
-              <p>Date in : <%= booking.date_in %> </p>
-              <p>Date out : <%= booking.date_out %> </p>
-              <% if booking.accepted %>
-                  <button class='accepted-tag positioning'> Accepted</button>
-              <% else %>
-                  <button class='pending-tag positioning'>Waiting for your confirmation</button>
-              <% end %>
-            </div>
-          </div>
+    <% @users_skills.each do |bookings_skill| %>
+    <% unless bookings_skill[0] == nil %>
+      <div class='gray-card-container'>
+        <h1> <%= bookings_skill[0].skill.name.capitalize unless bookings_skill[0] == nil %> </h1>
+        <% bookings_skill.each do |booking| %>
+          <%= link_to skill_booking_path(booking.skill, booking) do   %>
+            <div class="card-users-booking">
+              <!-- Add booker avatar-->
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-users-booking-infos d-flex">
+                  <p id='name-booker'><%= booking.user.first_name %></p>
+                  <p>Date in : <%= booking.date_in %> </p>
+                  <p>Date out : <%= booking.date_out %> </p>
+                  <% if booking.accepted %>
+                      <button class='accepted-tag positioning'> Accepted</button>
+                  <% else %>
+                      <button class='pending-tag positioning'>Waiting for your confirmation</button>
+                  <% end %>
+                </div>
+              </div>
+          <% end %>
+        <% end %>
+      <% else %>
       <% end %>
-      <% end %>
-    <% else %>
-    <span></span>
+      </div>
     <% end %>
-    </div>
-  <% end %>
   </div>
 </div>
 
