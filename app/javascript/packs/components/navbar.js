@@ -2,13 +2,19 @@ const WhiteNavbar = () => {
     const navbar = document.querySelector('.navbar-home');
     const title = document.querySelector('#title-navbar');
     const star = document.querySelector('#star-home');
-    navbar.classList.add('navbar-transparent')
-    title.classList.add('d-none');
+    if (navbar) {
+      navbar.classList.add('navbar-transparent')
+    };
+    if (title) { 
+      title.classList.add('d-none');
+    };
 
-    star.addEventListener('click', (event) => {
-      console.log('clicked');
-      navbar.classList.add('navbar-transparent');
-    });
+    if (star) {
+      star.addEventListener('click', (event) => {
+        console.log('clicked');
+        navbar.classList.add('navbar-transparent');
+      });
+    };
 
     if (navbar) {
       window.addEventListener('scroll', () => {
