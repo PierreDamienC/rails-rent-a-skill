@@ -39,7 +39,7 @@
   <div>
     <ul>
     <% @skill.reviews.order(id: :desc).each do |review| %>
-      <li>
+      <li class="list-unstyled">
       <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %> :
       <% review.rating.times do  %>
         <i class='fas fa-star'></i>
