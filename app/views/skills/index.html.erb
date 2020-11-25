@@ -1,8 +1,11 @@
 <div class="container">
-  <h1>Skills avalaible for rent</h1>
-      <div class="row">
- <% @skills.each do |skill| %>
-    <%= link_to skill_path(skill) do   %>
+  <div class="d-flex justify-content-between align-items-center">
+   <h1>Skills avalaible for rent</h1>
+   <%= link_to "+ Add a skill", new_skill_path, class: "button medium" %>
+  </div>
+  <div class="row">
+    <% @skills.each do |skill| %>
+      <%= link_to skill_path(skill) do   %>
         <div class="col-sm">
           <div class="card-trip">
             <% if skill.photo.attachment %>
@@ -20,11 +23,9 @@
             </div>
           </div>
         </div>
+      <% end %>
     <% end %>
-<% end %>
-      </div>
+  </div>
 
- </div>
-  <%= link_to "add a skill", new_skill_path %>
 </div>
 
