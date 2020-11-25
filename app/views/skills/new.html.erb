@@ -7,9 +7,11 @@
       <%= f.input :description %>
       <%= f.input :price %>
       <%= f.input :photo, as: :file %>
-      <%= f.button :submit, class: "button" %>
+      <div class="d-flex justify-content-center align-items-center">
+        <%= f.button :submit, class: "button button-simple-form" %>
+        <%= link_to "Back", skills_path, class: "button button-simple-form"%>
+      </div>
       <% end %>
-    <p><%= link_to "Back", skills_path %></p>
   </div>
 </div>
 
