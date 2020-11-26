@@ -1,7 +1,7 @@
 <div class="container fix_footer">
   <div class="d-flex justify-content-between align-items-center">
-   <h1>Skills avalaible for rent</h1>
-   <%= link_to "+ Add a skill", new_skill_path, class: "button medium" %>
+   <h1 class="text-center">Skills avalaible for rent</h1>
+   <%= link_to "+ Add a skill", new_skill_path, class: "button-edit medium" %>
   </div>
   <%= simple_form_for :search, url: skills_path, method: "GET", html: { class: 'form-inline' } do |f| %>
   <%= f.input :skill, input_html: {placeholder: "Search a skill..."} %>
@@ -48,4 +48,3 @@
   </div>
 
 </div>
-
