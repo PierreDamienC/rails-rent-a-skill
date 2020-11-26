@@ -7,6 +7,12 @@ class BookingsController < ApplicationController
 
   def new
     @skill = Skill.find(params[:skill_id])
+    @bookings_dates = @skill.bookings.map do |booking|
+      {
+        from: booking.date_in,
+        to: booking.date_out
+      }
+    end
     @booking = Booking.new
     authorize @booking
   end
