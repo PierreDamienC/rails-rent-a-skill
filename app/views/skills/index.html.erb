@@ -3,9 +3,13 @@
    <h1>Skills avalaible for rent</h1>
    <%= link_to "+ Add a skill", new_skill_path, class: "button medium" %>
   </div>
+  <%= simple_form_for :search, url: skills_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :skill, input_html: {placeholder: "Search a skill..."} %>
+  <%= f.submit "Search", class: "button" %>
+  <% end %>
   <div class="row">
     <% @skills.each do |skill| %>
-      <%= link_to skill_path(skill) do   %>
+      <%= link_to skill_path(skill) do %>
         <div class="col-sm">
           <div class="card-trip" %>
             <% if skill.photo.attachment %>
@@ -44,3 +48,5 @@
   </div>
 
 </div>
+
+<%= console %>

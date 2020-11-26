@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_11_26_095007) do
+ActiveRecord::Schema.define(version: 2020_11_26_100941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +80,6 @@ ActiveRecord::Schema.define(version: 2020_11_26_095007) do
     t.string "first_name"
     t.string "last_name"
     t.string "street", default: "2, avenue des Champs-Elysées"
-    t.integer "ZIP", default: 75000
     t.string "city", default: "Paris"
     t.string "country", default: "France"
     t.float "latitude"
