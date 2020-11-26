@@ -46,6 +46,5 @@ document.addEventListener('turbolinks:load', () => {
   dynamicRating();
   buttonReviewFunction();
   initMapbox();
-  initSelect2();
   initAutocomplete();
 });
