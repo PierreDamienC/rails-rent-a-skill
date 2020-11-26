@@ -19,7 +19,11 @@
                 <p><%= skill.description %></p>
               </div>
               <h2 class="card-trip-pricing"><%= skill.price %>€</h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <% if skill.user.photo.attachment %>
+                <%= cl_image_tag skill.user.photo.key,class: "card-trip-user avatar-bordered avatar"%>
+              <% else  %>
+                <div class="card-trip-user avatar-bordered avatar defaut"></div>
+              <% end %>
             </div>
           </div>
         </div>
