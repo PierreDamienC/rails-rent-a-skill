@@ -1,0 +1,13 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+#map {
+  border-radius: 10px;
+  position: sticky;
+  top: 185px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+}
