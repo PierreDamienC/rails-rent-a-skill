@@ -32,8 +32,11 @@
             </h2>
 
             <!-- Mettre l'avatar-->
-
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <% if booking.skill.user.photo.attachment %>
+              <%= cl_image_tag booking.skill.user.photo.key,class: "card-trip-user avatar-bordered avatar"%>
+            <% else %>
+              <div class="card-trip-user avatar-bordered avatar defaut"></div>
+            <% end %>
           </div>
         </div>
       </div>
