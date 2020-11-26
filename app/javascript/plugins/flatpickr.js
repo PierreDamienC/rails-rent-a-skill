@@ -19,6 +19,31 @@ const displayCalendar = () => {
 
 };
 
-export {displayCalendar};
+const displayBookingDetails = () => {
+  console.log("Hi from booking details");
 
+  const startDate = document.getElementById("range_start");
+  const endDate = document.getElementById("range_end");
+  const totalDays = document.getElementById("total-days")
+
+  const dynamicPrice = () => {
+    let dateDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value);
+    let nbrOfDays = (dateDiffInMilliseconds / 86400000)+1;
+    console.log(nbrOfDays)
+    if(startDate.value && endDate.value) {
+      totalDays.innerText = nbrOfDays
+    }
+  };
+
+  [startDate, endDate].forEach (date => {
+    date.addEventListener("change", (event) => {
+      dynamicPrice();
+    });
+  })
+
+}
+
+
+export {displayCalendar};
+export {displayBookingDetails}
 
