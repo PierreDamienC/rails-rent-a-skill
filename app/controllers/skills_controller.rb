@@ -4,7 +4,12 @@ class SkillsController < ApplicationController
   before_action :authorizing_skill, only: [:show, :destroy, :edit, :update]
 
   def index
-    @skills = policy_scope(Skill)
+    if params[:search].present?
+      @skills = policy_scope(Skill).search_by_description_and_name_price(params[:search]['skill'])
+    else
+      @skills = policy_scope(Skill)
+    end
+
     @users = @skills.map { |skill| skill.user }
     @markers = @users.map do |user|
       if user.latitude && user.longitude
@@ -64,6 +69,7 @@ class SkillsController < ApplicationController
   end
 
   private
+
   def authorizing_skill
     authorize @skill
   end

@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 2020_11_26_100941) do
     t.string "first_name"
     t.string "last_name"
     t.string "street", default: "2, avenue des Champs-Elysées"
-    t.integer "ZIP", default: 75000
     t.string "city", default: "Paris"
     t.string "country", default: "France"
     t.float "latitude"
