@@ -3,50 +3,43 @@
    <h1>Skills avalaible for rent</h1>
    <%= link_to "+ Add a skill", new_skill_path, class: "button medium" %>
   </div>
-  <%= simple_form_for :search, url: skills_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :skill, input_html: {placeholder: "Search a skill..."} %>
-  <%= f.submit "Search", class: "button" %>
-  <% end %>
-  <div class="row">
-    <% @skills.each do |skill| %>
-      <%= link_to skill_path(skill) do %>
-        <div class="col-sm">
-          <div class="card-trip" %>
-            <% if skill.photo.attachment %>
-              <%= cl_image_tag skill.photo.key, crop: :fill %>
-            <% else  %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <% end %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= skill.name %></h2>
-                <p><%= skill.description %></p>
-              </div>
-              <h2 class="card-trip-pricing"><%= skill.price %>€</h2>
-              <% if skill.user.photo.attachment %>
-                <%= cl_image_tag skill.user.photo.key,class: "card-trip-user avatar-bordered avatar"%>
-              <% else  %>
-                <div class="card-trip-user avatar-bordered avatar defaut"></div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <div class= 'mb-3'>
+    <%= simple_form_for :search, url: skills_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= f.input :skill, input_html: {placeholder: "Search a skill..."}, label: false %>
+    <%= f.submit 'SEARCH', class: 'button button-simple-form ml-3' %>
     <% end %>
   </div>
-
- <div class="text-center">
-  <%= link_to "add a skill", new_skill_path, class: "button" %>
- </div>
-
- <br>
-
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="d-flex">
+      <div class="card-container mr-2">
+      <% @skills.each do |skill| %>
+        <%= link_to skill_path(skill) do %>
+            <div class="card-trip" id='js-card-trip'>
+              <% if skill.photo.attachment %>
+                <%= cl_image_tag skill.photo.key, crop: :fill %>
+              <% else  %>
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= skill.name %></h2>
+                  <p><%= skill.description %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= skill.price %>€</h2>
+                <% if skill.user.photo.attachment %>
+                  <%= cl_image_tag skill.user.photo.key,class: "card-trip-user avatar-bordered avatar"%>
+                <% else  %>
+                  <div class="card-trip-user avatar-bordered avatar defaut"></div>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div id="map"
+        style="width: 100%; height: 565px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-
+ <br>
 </div>
-
-<%= console %>
