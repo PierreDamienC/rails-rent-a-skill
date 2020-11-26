@@ -41,3 +41,13 @@
   top: -45px;
   left: 485px;
 }
+
+.defaut {
+  background-image: url("https://lh3.googleusercontent.com/proxy/IiQLFSmUhOcNHwN2DHjrvn6K7PZKw44S8XZM8YDhg_rtF3exaUDDuQtmrRr5akAafWTPLBdAxrnjxdSh3ykSQuk-Yd3qj1S7y7IQqujoYCEjrGruG6TR_J_UUKM");
+  background-position: center;
+  background-size: cover;
+}
+
+.dropdown-toggle:after{
+  display:none;
+}

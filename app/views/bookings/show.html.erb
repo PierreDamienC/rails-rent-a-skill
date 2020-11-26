@@ -9,8 +9,16 @@
         <% end %>
         <!-- Modifier avec l'avatar du client et du loueur -->
         <div class='mb-3 parent'>
-        <%= image_tag "https://media-exp1.licdn.com/dms/image/C4D03AQEzrTJ9_oBLww/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=Oj7fYb3NZhjB0zf1PlCw0eIHvHcS6g3ItdfNB9M0yL4", class: "avatar dropdown-toggle av-border im-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <%= image_tag "https://assets.sport.francetvinfo.fr/sites/default/files/styles/large_16_9/public/2020-03/000_1ia311.jpg?h=763b10cd&itok=-ewHgPuK", class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if  current_user.photo.attachment %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle av-border im-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <div class="card-trip-user avatar-bordered avatar defaut im-1"></div>
+          <% end %>
+          <% if @booking.skill.user.photo.attachment %>
+            <%= cl_image_tag @booking.skill.user.photo.key, class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <img class="card-trip-user avatar-bordered avatar defaut im-2"></img>
+          <% end %>
         </div>
         <div class='text-left'>
           <% if policy(@booking).validate? %>

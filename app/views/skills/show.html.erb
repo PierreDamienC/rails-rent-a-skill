@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6 col text-center">
-      <%= cl_image_tag @skill.photo.key, class: "photo" %>
+      <% if @skill.photo.attachment %>
+        <%= cl_image_tag @skill.photo.key, class: "photo" %>
+      <% else  %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", class= "photo" />
+      <% end %>
       <div class="card-description">
         <h1> <%= @skill.name %> </h1>
         <p> A great skilled owned by <%= @skill.user.first_name%> <%= @skill.user.last_name %></p>
