@@ -36,9 +36,11 @@ const displayBookingDetails = () => {
   };
 
   [startDate, endDate].forEach (date => {
+    if (startDate && endDate) {
     date.addEventListener("change", (event) => {
       dynamicPrice();
     });
+   };
   })
 
 }

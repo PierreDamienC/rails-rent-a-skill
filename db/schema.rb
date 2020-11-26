@@ -79,9 +79,9 @@ ActiveRecord::Schema.define(version: 2020_11_26_100941) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "street"
-    t.string "city"
-    t.string "country"
+    t.string "street", default: "2, avenue des Champs-Elysées"
+    t.string "city", default: "Paris"
+    t.string "country", default: "France"
     t.float "latitude"
     t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
