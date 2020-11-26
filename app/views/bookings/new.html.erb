@@ -5,8 +5,8 @@
       <p class="text-highlited" > <%= @skill.name %> </p>
       <p>Please select on which dates you want to make a reservation for this skill</p>
       <%= simple_form_for [@skill, @booking] do |f|%>
-      <%= f.input :date_in, as: :string, required: false, input_html: {class: "datepicker"}  %>
-      <%= f.input :date_out, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :date_in, as: :string, required: true, input_html: {class: "datepicker start-date"}  %>
+      <%= f.input :date_out, as: :string, required: true, input_html: {class: "datepicker"} %>
       <div class="d-flex justify-content-center align-items-center">
         <%= f.button :submit, class: "button button-simple-form"%>
         <%= link_to "Back", skill_path(@skill), class: "button button-simple-form"%>
