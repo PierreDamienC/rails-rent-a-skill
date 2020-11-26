@@ -17,6 +17,25 @@
   }
 }
 
+.button-edit {
+  color: white;
+  background-color: $solid-pink;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 8px 24px;
+  font-weight: bolder;
+  text-align: center;
+  height: 30px;
+  margin-right: 10px;
+  &:hover {
+    color: $solid-pink;
+    border: 1px solid;
+    background-color: white;
+    font-weight: bolder;
+  }
+}
+
 .big {
   display: flex;
   justify-content: center;
@@ -53,3 +72,11 @@
   color: white;
 }
 
+.delete-account {
+  background-color: red;
+  border: red;
+  &:hover {
+    color: red;
+    border: 1px solid red;
+  }
+}
