@@ -12,12 +12,14 @@ p "Creating skills..."
 Skill.destroy_all
 
 # 1) create users
-user1 = User.create(email: "josephine@gmail.com", first_name: "josephine", last_name: "gerard", password: "azerty")
-user2 = User.create(email: "jean@gmail.com", first_name: "Jean", last_name: "jerome", password: "azerty")
-user3 = User.create(email: "bernard@gmail.com", first_name: "Bernard", last_name: "jp", password: "azerty")
+user1 = User.create(email: "josephine@gmail.com", first_name: "josephine", last_name: "gerard", password: "azerty",city:"lille",country:"france",street:"146 rue solferino")
+user2 = User.create(email: "jean@gmail.com", first_name: "Jean", last_name: "jerome", password: "azerty",city:"lille",country:"france",street:"147 rue solferino")
+user3 = User.create(email: "bernard@gmail.com", first_name: "Bernard", last_name: "jp", password: "azerty",city:"lille",country:"france",street:"148 rue solferino")
 # 2) create skills
 Skill.create(name: "footballer", description: "Passsement de jambes", price: 30, user: user1)
 Skill.create(name: "Basket", description: "Tirreur à 3 points", price: 50, user: user2)
 Skill.create(name: "mathématiques", description: "équations du second dégré", price: 50, user: user3)
 
 # 3) create reservations
+
+
