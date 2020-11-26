@@ -13,8 +13,10 @@
                   <p id='name-booker'><%= booking.user.first_name %></p>
                   <p>Date in : <%= booking.date_in %> </p>
                   <p>Date out : <%= booking.date_out %> </p>
-                  <% if booking.accepted %>
-                      <button class='accepted-tag positioning'> Accepted</button>
+                  <% if booking.status == "accepted" %>
+                      <button class='accepted-tag positioning'>Accepted</button>
+                  <% elsif booking.status == "cancelled" %>
+                      <button class='cancelled-tag positioning'>Cancelled</button>
                   <% else %>
                       <button class='pending-tag positioning'>Waiting for your confirmation</button>
                   <% end %>
