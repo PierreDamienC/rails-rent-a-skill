@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   patch "/skills/:skill_id/bookings/:id", to: "bookings#validate", as: :validate_skill_booking
+  patch "/skills/:skill_id/bookings/:id/cancel", to: "bookings#cancel", as: :cancel_skill_booking
   get "/account/users-bookings", to: "bookings#users_bookings", as: :users_bookings
   get "/account/my-bookings", to: "bookings#my_bookings", as: :my_bookings
 end

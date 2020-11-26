@@ -25,16 +25,21 @@
         </div>
         <div class='text-right'>
           <% if policy(@booking).validate? %>
-            <% if @booking.accepted %>
+            <% if @booking.status == "accepted" %>
               <button class='accepted-tag'>Accepted</button>
-              <% else %>
+            <% elsif @booking.status == "cancelled" %>
+              <button class='cancelled-tag'>Cancelled</button>
+            <% else %>
               <%= link_to "Confirm Booking", validate_skill_booking_path(@booking.skill, @booking), method: :patch, class: 'button' %>
+              <%= link_to "Cancel Booking", cancel_skill_booking_path(@booking.skill, @booking), method: :patch, class: "button" %>
             <% end %>
           <% else %>
-           <% if @booking.accepted %>
-            <button class='accepted-tag'>Accepted</button>
+            <% if @booking.status == "accepted" %>
+              <button class='accepted-tag'>Accepted</button>
+            <% elsif @booking.status == "cancelled" %>
+              <button class='cancelled-tag'>Cancelled</button>
             <% else %>
-            <button class='pending-tag'>Pending...</button>
+              <button class='pending-tag'>Pending...</button>
           <% end %>
         <% end %>
         </div>
