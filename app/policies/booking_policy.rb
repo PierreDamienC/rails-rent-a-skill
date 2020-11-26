@@ -8,6 +8,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def cancel?
+    user == record.skill.user
+  end
+
   def validate?
     user == record.skill.user
   end
