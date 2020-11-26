@@ -32,16 +32,19 @@ import flatpickr from "flatpickr";
 import { WhiteNavbar } from './components/navbar'
 import { dynamicRating } from './components/fillstars'
 import { buttonReviewFunction } from './components/hide_review'
-
+import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete'
 
 // import flatpickr, which is a module for chosing a date in a calendar
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
   WhiteNavbar();
   flatpickr(".datepicker", {});
   dynamicRating();
   buttonReviewFunction();
+  initMapbox();
+  initSelect2();
+  initAutocomplete();
 });

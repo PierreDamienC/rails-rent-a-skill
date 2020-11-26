@@ -5,10 +5,29 @@ class SkillsController < ApplicationController
 
   def index
     @skills = policy_scope(Skill)
+    @users = @skills.map { |skill| skill.user }
+    @markers = @users.map do |user|
+      if user.latitude && user.longitude
+        {
+          lat: user.latitude,
+          lng: user.longitude
+        }
+      else
+        nil
+      end
+    end
+    @markers = @markers.select { |marker| marker != nil }
   end
 
   def show
     @review = Review.new
+    @user = [@skill.user]
+    @markers = @user.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def new
