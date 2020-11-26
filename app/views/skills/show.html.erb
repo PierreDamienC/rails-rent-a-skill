@@ -10,7 +10,7 @@
         <h1> <%= @skill.name %> </h1>
         <p> A great skilled owned by <%= @skill.user.first_name%> <%= @skill.user.last_name %></p>
         <p>Avalaible since <%= @skill.created_at.strftime("%d %b. %Y")%> </p>
-        <p> </br><%= @skill.description %> </p>
+        <p><%= @skill.description %> </p>
         <div class="d-flex justify-content-center mt-5">
             <% if policy(@skill).edit? %>
               <p> <%= link_to "Edit", edit_skill_path, class: "button"  %> </p>
@@ -64,6 +64,14 @@
         </div>
       <% end %>
     </div>
+  </div>
+
+  <br>
+
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
 </div>

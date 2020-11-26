@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @skill = Skill.find(params[:skill_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.accepted = false
+    @booking.status = "pending"
     @booking.skill = @skill
 
     authorize @booking
@@ -31,7 +31,15 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
 
-    @booking.update(accepted: true)
+    @booking.update(status: "accepted")
+    redirect_to skill_booking_path
+  end
+
+  def cancel
+    @booking = Booking.find(params[:id])
+    authorize @booking
+
+    @booking.update(status: "cancelled")
     redirect_to skill_booking_path
   end
 

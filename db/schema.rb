@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_113856) do
+
+ActiveRecord::Schema.define(version: 2020_11_26_095007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +40,11 @@ ActiveRecord::Schema.define(version: 2020_11_25_113856) do
   create_table "bookings", force: :cascade do |t|
     t.date "date_in"
     t.date "date_out"
-    t.boolean "accepted"
     t.bigint "skill_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
     t.index ["skill_id"], name: "index_bookings_on_skill_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -79,6 +80,12 @@ ActiveRecord::Schema.define(version: 2020_11_25_113856) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "street", default: "2, avenue des Champs-Elysées"
+    t.integer "ZIP", default: 75000
+    t.string "city", default: "Paris"
+    t.string "country", default: "France"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

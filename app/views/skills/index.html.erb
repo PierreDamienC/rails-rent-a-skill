@@ -7,7 +7,7 @@
     <% @skills.each do |skill| %>
       <%= link_to skill_path(skill) do   %>
         <div class="col-sm">
-          <div class="card-trip">
+          <div class="card-trip" %>
             <% if skill.photo.attachment %>
               <%= cl_image_tag skill.photo.key, crop: :fill %>
             <% else  %>
@@ -29,9 +29,18 @@
         </div>
       <% end %>
     <% end %>
-</div>
-</div>
+  </div>
 
  <div class="text-center">
   <%= link_to "add a skill", new_skill_path, class: "button" %>
+ </div>
+
+ <br>
+
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 </div>

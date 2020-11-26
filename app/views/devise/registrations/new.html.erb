@@ -22,6 +22,10 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+
+      <%= f.input :street %>
+      <%= f.input :city %>
+      <%= f.input :country, input_html: { class: 'select2' } %>
       <%= f.input :photo, as: :file %>
     </div>
 
