@@ -35,12 +35,14 @@ import { buttonReviewFunction } from './components/hide_review'
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { displayCalendar } from "../plugins/flatpickr"
+import { displayBookingDetails } from "../plugins/flatpickr"
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   WhiteNavbar();
   displayCalendar();
+  displayBookingDetails();
   dynamicRating();
   buttonReviewFunction();
   initMapbox();
