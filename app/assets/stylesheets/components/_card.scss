@@ -92,3 +92,9 @@
   color: $light-green;
 }
 
+.card-trip-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}

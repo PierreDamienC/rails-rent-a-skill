@@ -14,7 +14,10 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
-  after_validation :geocode, on: [:update, :create]
+
+  def address_changed?
+    street_changed? || city_changed? || country_changed?
+  end
 
   def address
     [street, city, country].compact.join(', ')

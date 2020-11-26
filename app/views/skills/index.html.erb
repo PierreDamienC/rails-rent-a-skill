@@ -1,11 +1,15 @@
-<div class="container">
+<div class="container fix_footer">
   <div class="d-flex justify-content-between align-items-center">
    <h1 class="text-center">Skills avalaible for rent</h1>
    <%= link_to "+ Add a skill", new_skill_path, class: "button-edit medium" %>
   </div>
+  <%= simple_form_for :search, url: skills_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :skill, input_html: {placeholder: "Search a skill..."} %>
+  <%= f.submit "Search", class: "button" %>
+  <% end %>
   <div class="row">
     <% @skills.each do |skill| %>
-      <%= link_to skill_path(skill) do   %>
+      <%= link_to skill_path(skill) do %>
         <div class="col-sm">
           <div class="card-trip" %>
             <% if skill.photo.attachment %>
@@ -15,8 +19,8 @@
           <% end %>
             <div class="card-trip-infos">
               <div>
-                <h2><%= skill.name %></h2>
-                <p><%= skill.description %></p>
+                <h2 class="text-left"><%= skill.name.capitalize %></h2>
+                <p class="card-trip-description"><%= skill.description %></p>
               </div>
               <h2 class="card-trip-pricing"><%= skill.price %>€</h2>
               <% if skill.user.photo.attachment %>
