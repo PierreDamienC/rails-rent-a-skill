@@ -43,7 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   displayCalendar();
   dynamicRating();
   buttonReviewFunction();
-  // initMapbox();
-  // initSelect2();
-  // initAutocomplete();
+  initMapbox();
+  initSelect2();
+  initAutocomplete();
 });
