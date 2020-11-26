@@ -52,3 +52,11 @@
   color: white;
 }
 
+.delete-account {
+  background-color: red;
+  border: red;
+  &:hover {
+    color: red;
+    border: 1px solid red;
+  }
+}
