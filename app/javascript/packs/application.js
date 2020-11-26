@@ -25,7 +25,7 @@ require("../plugins/init_flip_card")
 
 // External imports
 import "bootstrap";
-import flatpickr from "flatpickr";
+import "../plugins/flatpickr"
 
 
 // Internal imports, e.g:
@@ -34,15 +34,13 @@ import { dynamicRating } from './components/fillstars'
 import { buttonReviewFunction } from './components/hide_review'
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
+import { displayCalendar } from "../plugins/flatpickr"
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   WhiteNavbar();
-  flatpickr(".datepicker", {
-    altInput: true,
-    minDate: "today"
-  });
+  displayCalendar();
   dynamicRating();
   buttonReviewFunction();
   initMapbox();
