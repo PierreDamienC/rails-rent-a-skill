@@ -19,7 +19,7 @@
             <div>
               <p> <%= booking.date_in %> to <%= booking.date_out %> </p>
               <h2 class="text-left"><%= booking.skill.name %></h2>
-              <p class="card-trip-description"><%= booking.skill.description %></p>
+              <p class="card-trip-description"><%= booking.skill.description  %></p>
             </div>
             <h2 class="card-trip-pricing">
               <% if booking.status == "accepted" %>
