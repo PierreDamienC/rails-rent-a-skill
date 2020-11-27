@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :skills do
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create, :show] do 
+      resources :payments, only: :new
+    end
     resources :reviews, only: [:new, :create]
   end
   patch "/skills/:skill_id/bookings/:id", to: "bookings#validate", as: :validate_skill_booking
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   get "/account/users-bookings", to: "bookings#users_bookings", as: :users_bookings
   get "/account/my-bookings", to: "bookings#my_bookings", as: :my_bookings
   post "/skills/:skill_id/bookings/:id/pay", to: "bookings#pay", as: :booking_pay
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
 
 
