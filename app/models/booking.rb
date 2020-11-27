@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
   validates :date_in, :date_out, presence: true
   validate :dates_not_blank
   validate :date_in_after_date_out
+  monetize :amount_cents
 
   private
 

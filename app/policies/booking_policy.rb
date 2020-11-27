@@ -24,6 +24,10 @@ class BookingPolicy < ApplicationPolicy
     user == record.user
   end
 
+  def pay?
+   user == record.user
+  end
+
   class Scope < Scope
     def resolve
       scope.all
