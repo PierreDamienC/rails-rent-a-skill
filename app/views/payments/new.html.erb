@@ -1,0 +1,27 @@
+<div class="container fix_footer">
+  <div class="row py-4">
+    <div class="col-md-3">
+      <% if @booking.skill.photo.attachment %>
+      <%= cl_image_tag @booking.skill.photo.key, width: '100%' %>
+      <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" style="width: 100%" />
+      <% end %>
+    </div>
+    <div class="col">
+      <h1>Checkout summary</h1>
+      <p>Purchase of <strong><%= @booking.skill.name %></strong> for <strong><%= humanized_money_with_symbol @booking.amount %></strong></p>
+      <button id="pay" class="btn btn-primary">Pay</button>
+      <%# # Commented for the lecture, remove comments. %>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @booking.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>

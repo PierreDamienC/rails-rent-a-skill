@@ -70,19 +70,20 @@ class BookingsController < ApplicationController
     authorize @booking
 
     session = Stripe::Checkout::Session.create(
-    payment_method_types: ['card'],
-    line_items: [{
-    name: @booking.skill.name,
-    # images: [cl_image_path (@booking.skill.photo.attachment)],
-    amount: @booking.amount_cents,
-    currency: 'eur',
-    quantity: 1
-    }],
-    success_url: booking_url(@booking),
-    cancel_url: booking_url(@booking)
-          )
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @booking.skill.name,
+        # images: [cl_image_path (@booking.skill.photo.attachment)],
+        amount: @booking.amount_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: skill_booking_url(@booking),
+      cancel_url: skill_booking_url(@booking)
+    )
 
-    redirect_to skill_booking_path(params[:skill_id], @booking)
+    @booking.update(checkout_session_id: session.id)
+    redirect_to new_skill_booking_payment_path(params[:skill_id], @booking)
   end
 
   private

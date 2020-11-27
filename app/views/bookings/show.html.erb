@@ -37,14 +37,13 @@
           <% if policy(@booking).validate? %>
             <p>From <%= @booking.date_in %> to : <%= @booking.date_out %></p>
             <p>E-mail of <%= @booking.user.first_name %> : <%= @booking.user.email %> </p>
-            <p>Price per day : <%= humanized_money_with_symbol (@booking.skill.price) %> € </p>
+            <p>Price per day : <%= humanized_money_with_symbol (@booking.skill.price) %> </p>
           <% else %>
             <p>From <%= @booking.date_in %> to <%= @booking.date_out %></p>
             <p>E-mail of <%= @booking.skill.user.first_name%>: <%= @booking.skill.user.email %> </p>
-            <p>Price per day : <%= humanized_money_with_symbol(@booking.skill.price) %> €</p>
+            <p>Price per day : <%= humanized_money_with_symbol(@booking.skill.price) %></p>
           <% end %>
         </div>
-        <% console %>
         <div class='text-right'>
           <% if policy(@booking).validate? %>
             <% if @booking.status == "accepted - Time to pay" %>
@@ -56,6 +55,8 @@
               <% else %>
                 <button class="accepted-tag">Waiting for payment</button>
               <% end %>
+            <% elsif @booking.status == "paid" %>
+              <button class='paid-tag positioning'>Paid</button>
             <% elsif @booking.status == "cancelled" %>
               <button class='cancelled-tag'>Cancelled</button>
             <% else %>
@@ -64,17 +65,19 @@
             <% end %>
           <% else %>
             <% if @booking.status == "accepted - Time to pay" %>
-                <% if current_user == @booking.user %>
-                  <%= form_tag booking_pay_path(@booking.skill,@booking) do %>
-                  <%= hidden_field_tag 'booking', @booking %>
-                  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-                    <% end %>
-                  <% else %>
-                    <button class="accepted-tag">Waiting for payment</button>
+              <% if current_user == @booking.user %>
+                <%= form_tag booking_pay_path(@booking.skill,@booking) do %>
+                <%= hidden_field_tag 'booking', @booking %>
+                <%= submit_tag 'Purchase', class: 'accepted-tag-show-page' %>
                   <% end %>
+                <% else %>
+                  <button class="accepted-tag">Waiting for payment</button>
+              <% end %>
 
             <% elsif @booking.status == "cancelled" %>
               <button class='cancelled-tag'>Cancelled</button>
+            <% elsif @booking.status == "paid" %>
+              <button class='paid-tag positioning'>Paid</button>
             <% else %>
               <button class='pending-tag'>Pending...</button>
           <% end %>

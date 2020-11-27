@@ -1,4 +1,28 @@
 .accepted-tag {
+  background-color: #006DCB;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  border: none;
+  padding: 5px 10px;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.accepted-tag-show-page {
+  background-color: #006DCB;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 7.5px 15px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.paid-tag {
   background-color: #33dd74;
   border-radius: 20px;
   color: white;

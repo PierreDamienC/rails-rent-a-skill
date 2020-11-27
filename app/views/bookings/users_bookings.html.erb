@@ -15,12 +15,14 @@
               <% end %>
               <div class="card-users-booking-infos d-flex">
                   <p id='name-booker'><%= booking.user.first_name %></p>
-                  <p class="mr-1">From <%= booking.date_in %>  </p>
+                  <p class="mr-1">From <%= booking.date_in %> </p>
                   <p> to <%= booking.date_out %> </p>
-                  <% if booking.status == "accepted" %>
-                      <button class='accepted-tag positioning'>Accepted</button>
+                  <% if booking.status == "accepted - Time to pay" %>
+                      <button class='accepted-tag positioning'>Waiting for payment</button>
                   <% elsif booking.status == "cancelled" %>
                       <button class='cancelled-tag positioning'>Cancelled</button>
+                  <% elsif booking.status == "paid" %>
+                      <button class='paid-tag positioning'>Paid</button>
                   <% else %>
                       <button class='pending-tag positioning'>Waiting for your confirmation</button>
                   <% end %>
