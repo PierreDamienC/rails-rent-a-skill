@@ -8,8 +8,8 @@
           <%= link_to skill_booking_path(booking.skill, booking) do   %>
             <div class="card-users-booking">
               <!-- Add booker avatar-->
-              <% if booking.skill.user.photo.attachment %>
-                  <%= cl_image_tag booking.skill.user.photo.key,class: "card-trip-user avatar-bordered avatar", crop: :fill %>
+              <% if booking.user.photo.attachment %>
+                  <%= cl_image_tag booking.user.photo.key,class: "card-trip-user avatar-bordered avatar", crop: :fill %>
               <% else  %>
                   <div class="card-trip-user avatar-bordered avatar defaut"></div>
               <% end %>
