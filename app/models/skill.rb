@@ -10,6 +10,9 @@ class Skill < ApplicationRecord
   monetize :price_cents
   pg_search_scope :search_by_description_and_name_price,
     against: [:name, :description],
+    associated_against: {
+      user: [:first_name, :last_name ]
+    },
     using: {
       tsearch: { prefix: true }
     }

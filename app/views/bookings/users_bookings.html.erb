@@ -8,16 +8,16 @@
           <%= link_to skill_booking_path(booking.skill, booking) do   %>
             <div class="card-users-booking">
               <!-- Add booker avatar-->
-              <% if booking.skill.user.photo.attachment %>
-                  <%= cl_image_tag booking.skill.user.photo.key,class: "card-trip-user avatar-bordered avatar", crop: :fill %>
+              <% if booking.user.photo.attachment %>
+                  <%= cl_image_tag booking.user.photo.key,class: "card-trip-user avatar-bordered avatar", crop: :fill %>
               <% else  %>
                   <div class="card-trip-user avatar-bordered avatar defaut"></div>
               <% end %>
               <div class="card-users-booking-infos d-flex">
                   <p id='name-booker'><%= booking.user.first_name %></p>
-                  <p>Date in : <%= booking.date_in %> </p>
-                  <p>Date out : <%= booking.date_out %> </p>
-                  <% if booking.status == "accepted - Time to pay" %>
+                  <p class="mr-1">From <%= booking.date_in %>  </p>
+                  <p> to <%= booking.date_out %> </p>
+                  <% if booking.status == "accepted" %>
                       <button class='accepted-tag positioning'>Accepted</button>
                   <% elsif booking.status == "cancelled" %>
                       <button class='cancelled-tag positioning'>Cancelled</button>

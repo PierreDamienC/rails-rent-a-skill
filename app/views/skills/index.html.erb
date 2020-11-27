@@ -1,7 +1,6 @@
 <div class="container fix_footer">
   <div class="d-flex justify-content-between align-items-center">
-   <h1 class="text-center">Skills avalaible for rent</h1>
-   <%= link_to "+ Add a skill", new_skill_path, class: "button-edit medium" %>
+   <h1 class='text-center'>Skills avalaible for rent</h1>
   </div>
   <div class= 'mb-3'>
     <%= simple_form_for :search, url: skills_path, method: "GET", html: { class: 'form-inline' } do |f| %>
@@ -10,7 +9,7 @@
     <% end %>
   </div>
     <div class="d-flex">
-      <div class="card-container mr-2">
+      <div class="card-container">
       <% @skills.each do |skill| %>
         <%= link_to skill_path(skill) do %>
             <div class="card-trip" id='js-card-trip'>
@@ -21,7 +20,7 @@
             <% end %>
               <div class="card-trip-infos">
                 <div>
-                  <h2 class="text-left"><%= skill.name.capitalize %></h2>
+                  <h2 class="text-left card-trip-title"><%= skill.name.capitalize %></h2>
                   <p class="card-trip-description"><%= skill.description %></p>
                 </div>
                 <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(skill.price) %></h2>
@@ -36,7 +35,7 @@
       <% end %>
     </div>
     <div id="map"
-        style="width: 100%; height: 565px;"
+        style="width: 100%;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
