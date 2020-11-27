@@ -65,9 +65,15 @@
         <% end %>
         </div>
       </div>
-      <div class="text-center">
-        <%= link_to 'Back', my_bookings_path, class: 'button'   %>
-      </div>
+      <% if current_user == @booking.skill.user %>
+        <div class="text-center">
+          <%= link_to 'Back', users_bookings_path, class: 'button'   %>
+        </div>
+      <% else %>
+        <div class="text-center">
+          <%= link_to 'Back', my_bookings_path, class: 'button'   %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
