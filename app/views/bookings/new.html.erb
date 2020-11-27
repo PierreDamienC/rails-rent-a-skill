@@ -9,7 +9,6 @@
       <%= f.input :date_out, label: false, as: :string, required: false, input_html: {class: "datepicker d-none", id:"range_end"} %>
       <p>Booking for <span id="total-days">0</span> days</p>
        <p>Total price : <span id="total-price">0</span> € </p>
-      <%= console %>
       <div class="d-flex justify-content-center align-items-center">
         <%= f.button :submit, class: "button button-simple-form"%>
         <%= link_to "Back", skill_path(@skill), class: "button button-simple-form"%>

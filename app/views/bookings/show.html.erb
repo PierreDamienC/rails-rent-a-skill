@@ -29,7 +29,7 @@
             <% if @booking.skill.user.photo.attachment %>
               <%= cl_image_tag @booking.skill.user.photo.key, class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-              <img class="card-trip-user avatar-bordered avatar defaut im-2"></img>
+              <img class="card-trip-user avatar-bordered avatar defaut im-2">
             <% end %>
           <% end %>
         </div>

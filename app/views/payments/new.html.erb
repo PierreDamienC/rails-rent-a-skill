@@ -1,5 +1,6 @@
 <div class="container fix_footer">
-  <div class="row py-4">
+  <h1 class="text-center m-1" style="color: #49AC98">Checkout Summary</h1>
+  <div class="card-your-resa row mt-5 py-4">
     <div class="col-md-3">
       <% if @booking.skill.photo.attachment %>
       <%= cl_image_tag @booking.skill.photo.key, width: '100%' %>
@@ -8,7 +9,7 @@
       <% end %>
     </div>
     <div class="col">
-      <h1>Checkout summary</h1>
+      <h1>Your booking</h1>
       <p>Purchase of <strong><%= @booking.skill.name %></strong> for <strong><%= humanized_money_with_symbol @booking.amount %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
       <%# # Commented for the lecture, remove comments. %>
