@@ -29,7 +29,7 @@
             <% if @booking.skill.user.photo.attachment %>
               <%= cl_image_tag @booking.skill.user.photo.key, class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-              <img class="card-trip-user avatar-bordered avatar defaut im-2"></img>
+              <img class="card-trip-user avatar-bordered avatar defaut im-2">
             <% end %>
           <% end %>
         </div>
@@ -37,14 +37,13 @@
           <% if policy(@booking).validate? %>
             <p>From <%= @booking.date_in %> to : <%= @booking.date_out %></p>
             <p>E-mail of <%= @booking.user.first_name %> : <%= @booking.user.email %> </p>
-            <p>Price per day : <%= humanized_money_with_symbol (@booking.skill.price) %> € </p>
+            <p>Price per day : <%= humanized_money_with_symbol (@booking.skill.price) %></p>
           <% else %>
             <p>From <%= @booking.date_in %> to <%= @booking.date_out %></p>
             <p>E-mail of <%= @booking.skill.user.first_name%>: <%= @booking.skill.user.email %> </p>
-            <p>Price per day : <%= humanized_money_with_symbol(@booking.skill.price) %> €</p>
+            <p>Price per day : <%= humanized_money_with_symbol(@booking.skill.price) %></p>
           <% end %>
         </div>
-        <% console %>
         <div class='text-right'>
           <% if policy(@booking).validate? %>
             <% if @booking.status == "accepted - Time to pay" %>
