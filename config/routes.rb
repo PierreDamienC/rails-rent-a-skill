@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   patch "/skills/:skill_id/bookings/:id/cancel", to: "bookings#cancel", as: :cancel_skill_booking
   get "/account/users-bookings", to: "bookings#users_bookings", as: :users_bookings
   get "/account/my-bookings", to: "bookings#my_bookings", as: :my_bookings
+  post "/skills/:skill_id/bookings/:id/pay", to: "bookings#pay", as: :booking_pay
 end
 
 

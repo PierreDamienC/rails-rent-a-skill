@@ -24,7 +24,7 @@
                   <h2 class="text-left"><%= skill.name.capitalize %></h2>
                   <p class="card-trip-description"><%= skill.description %></p>
                 </div>
-                <h2 class="card-trip-pricing"><%= skill.price %>€</h2>
+                <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(skill.price) %></h2>
                 <% if skill.user.photo.attachment %>
                   <%= cl_image_tag skill.user.photo.key,class: "card-trip-user avatar-bordered avatar"%>
                 <% else  %>

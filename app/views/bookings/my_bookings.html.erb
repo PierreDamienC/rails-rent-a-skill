@@ -22,7 +22,7 @@
               <p class="card-trip-description"><%= booking.skill.description  %></p>
             </div>
             <h2 class="card-trip-pricing">
-              <% if booking.status == "accepted" %>
+              <% if booking.status == "accepted - Time to pay"%>
                 <button class='accepted-tag'> Accepted</button>
               <% elsif booking.status == "cancelled" %>
                 <button class='cancelled-tag'> Cancelled</button>

@@ -23,10 +23,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "pending"
     @booking.skill = @skill
-
+    @booking.amount_cents = @booking.skill.price_cents * (@booking.date_out - @booking.date_in).numerator
     authorize @booking
 
     if @booking.save
+
       redirect_to skill_booking_path(params[:skill_id], @booking)
     else
       render :new
@@ -37,7 +38,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
 
-    @booking.update(status: "accepted")
+    @booking.update(status: "accepted - Time to pay")
     redirect_to skill_booking_path
   end
 
@@ -61,6 +62,27 @@ class BookingsController < ApplicationController
   def my_bookings
     @user_bookings = current_user.bookings
     @user_bookings.each { |booking| authorize booking }
+  end
+
+  def pay
+    @booking =Booking.find(params[:id])
+    @skill = Skill.find(params[:skill_id])
+    authorize @booking
+
+    session = Stripe::Checkout::Session.create(
+    payment_method_types: ['card'],
+    line_items: [{
+    name: @booking.skill.name,
+    # images: [cl_image_path (@booking.skill.photo.attachment)],
+    amount: @booking.amount_cents,
+    currency: 'eur',
+    quantity: 1
+    }],
+    success_url: booking_url(@booking),
+    cancel_url: booking_url(@booking)
+          )
+
+    redirect_to skill_booking_path(params[:skill_id], @booking)
   end
 
   private
