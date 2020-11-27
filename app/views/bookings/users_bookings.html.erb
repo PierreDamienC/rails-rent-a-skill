@@ -15,8 +15,8 @@
               <% end %>
               <div class="card-users-booking-infos d-flex">
                   <p id='name-booker'><%= booking.user.first_name %></p>
-                  <p>Date in : <%= booking.date_in %> </p>
-                  <p>Date out : <%= booking.date_out %> </p>
+                  <p class="mr-1">From <%= booking.date_in %>  </p>
+                  <p> to <%= booking.date_out %> </p>
                   <% if booking.status == "accepted" %>
                       <button class='accepted-tag positioning'>Accepted</button>
                   <% elsif booking.status == "cancelled" %>
