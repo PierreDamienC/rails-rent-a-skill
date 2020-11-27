@@ -45,12 +45,12 @@
         <% end %>
       <% end %>
     </ul>
+    <div class="button" id="leavereview">Leave a review</div>
   </div>
 
 
-  <div class="card-description">
-    <div class="button medium" id="leavereview">Leave a review</div>
-    <div id="tohide" class="d-none">
+  <div  class="d-none" id="tohide" >
+    <div class="card-description">
       <%= simple_form_for [@skill, @review], remote: true do |f|%>
         <%= f.input :content %>
         <%= f.input :rating, as: :hidden %>
