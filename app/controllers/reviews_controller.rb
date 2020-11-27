@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
-      redirect_to skill_path(@skill)
+      redirect_to skill_path(@skill, anchor: "anchor-reviews")
     else
       render "skills/show"
     end

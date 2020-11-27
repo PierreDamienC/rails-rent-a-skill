@@ -10,7 +10,7 @@
         <h1> <%= @skill.name %> </h1>
         <p> A great skilled owned by <%= @skill.user.first_name%> <%= @skill.user.last_name %></p>
         <p>Avalaible since <%= @skill.created_at.strftime("%d %b. %Y")%> </p>
-        <p><%= @skill.description %> </p>
+        <p id="anchor-reviews"><%= @skill.description %> </p>
         <div class="d-flex justify-content-center mt-5">
             <% if policy(@skill).edit? %>
               <p> <%= link_to "Edit", edit_skill_path, class: "button"  %> </p>
@@ -19,7 +19,7 @@
               <p> <%= link_to "Delete", skill_path(@skill), class: "button", method: :delete, data: { confirm: "Are you sure?" }  %> </p>
             <% end %>
             <% unless policy(@skill).edit? == true  %>
-              <p><%= link_to "Make a reservation", new_skill_booking_path(@skill),  class: "button" %></p>
+              <p><%= link_to "Make a reservation", new_skill_booking_path(@skill),  class: "button"%></p>
             <% end %>
             <p><%= link_to "Back", skills_path, class: "button" %></p>
         </div>
@@ -51,7 +51,7 @@
 
   <div  class="d-none" id="tohide" >
     <div class="card-description">
-      <%= simple_form_for [@skill, @review] do |f|%>
+      <%= simple_form_for [@skill, @review], remote: true do |f|%>
         <%= f.input :content %>
         <%= f.input :rating, as: :hidden %>
         <div class="my-3">
