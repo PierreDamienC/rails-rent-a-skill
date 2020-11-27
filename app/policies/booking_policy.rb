@@ -17,11 +17,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def users_bookings?
-    user == record.skill.user
+    user
   end
 
   def my_bookings?
-    user == record.user
+    user
   end
 
   def pay?
