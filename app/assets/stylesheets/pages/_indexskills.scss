@@ -7,7 +7,9 @@
 #map {
   border-radius: 10px;
   position: sticky;
-  top: 185px;
+  top: 65px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 15px;
+  height: calc(100vh - 75px);
+  margin-left: 10px;
 }
