@@ -9,15 +9,28 @@
         <% end %>
         <!-- Modifier avec l'avatar du client et du loueur -->
         <div class='mb-3 parent'>
-          <% if  current_user.photo.attachment %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle av-border im-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user == @booking.skill.user  %>
+            <% if  current_user.photo.attachment %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle av-border im-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <div class="card-trip-user avatar-bordered avatar defaut im-1"></div>
+            <% end %>
+            <% if @booking.user.photo.attachment %>
+              <%= cl_image_tag @booking.user.photo.key, class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <img class="card-trip-user avatar-bordered avatar defaut im-2"></img>
+            <% end %>
           <% else %>
-            <div class="card-trip-user avatar-bordered avatar defaut im-1"></div>
-          <% end %>
-          <% if @booking.skill.user.photo.attachment %>
-            <%= cl_image_tag @booking.skill.user.photo.key, class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <img class="card-trip-user avatar-bordered avatar defaut im-2"></img>
+            <% if  current_user.photo.attachment %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle av-border im-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <div class="card-trip-user avatar-bordered avatar defaut im-1"></div>
+            <% end %>
+            <% if @booking.skill.user.photo.attachment %>
+              <%= cl_image_tag @booking.skill.user.photo.key, class: "avatar dropdown-toggle av-border im-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <img class="card-trip-user avatar-bordered avatar defaut im-2"></img>
+            <% end %>
           <% end %>
         </div>
         <div class='text-left'>
