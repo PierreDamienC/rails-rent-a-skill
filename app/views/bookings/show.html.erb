@@ -42,7 +42,7 @@
               <% else %>
                 <button class="accepted-tag">Waiting for payment</button>
               <% end %>
-            <% elsif booking.status == "paid" %>
+            <% elsif @booking.status == "paid" %>
               <button class='paid-tag positioning'>Paid</button>
             <% elsif @booking.status == "cancelled" %>
               <button class='cancelled-tag'>Cancelled</button>
@@ -63,7 +63,7 @@
 
             <% elsif @booking.status == "cancelled" %>
               <button class='cancelled-tag'>Cancelled</button>
-            <% elsif booking.status == "paid" %>
+            <% elsif @booking.status == "paid" %>
               <button class='paid-tag positioning'>Paid</button>
             <% else %>
               <button class='pending-tag'>Pending...</button>
