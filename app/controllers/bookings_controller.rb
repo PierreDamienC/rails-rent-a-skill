@@ -51,16 +51,28 @@ class BookingsController < ApplicationController
 
   def users_bookings
     @users_skills = current_user.skills
-    @users_skills = @users_skills.to_a.map { |skill| skill.bookings.to_a }.to_a
-    @users_skills.each { |bookings_skill| bookings_skill.each do |booking|
-      authorize booking
+    @users_bookings = @users_skills.map { |skill| skill.bookings.length }
+    @sum = @users_bookings.reduce do |sum, add| sum + add end
+    if @sum == 0
+      @booking = Booking.new
+      authorize @booking
+    else
+      @users_skills = @users_skills.to_a.map { |skill| skill.bookings.to_a }.to_a
+      @users_skills.each do |bookings_skill| bookings_skill.each do |booking|
+        authorize booking
+        end
+      end
     end
-  }
   end
 
   def my_bookings
     @user_bookings = current_user.bookings
-    @user_bookings.each { |booking| authorize booking }
+    if @user_bookings.length == 0
+      @booking = Booking.new
+      authorize @booking
+    else
+      @user_bookings.each { |booking| authorize booking }
+    end
   end
 
   private

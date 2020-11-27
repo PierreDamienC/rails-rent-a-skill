@@ -1,10 +1,13 @@
 <div class="container fix_footer">
   <h1>My bookings</h1>
-
   <div class="tabs-bar">
     <%= link_to 'To come',  my_bookings_path %>
     <%= link_to 'Previous', my_bookings_path  %>
   </div>
+    <% if @user_bookings.length == 0  %>
+    <p style='color: gray;'>No bookings yet...</p>
+    <%= link_to 'Rent a skill', skills_path, class: 'button'  %>
+    <% else %>
     <div class="row">
       <% @user_bookings.each do |booking| %>
       <%= link_to skill_booking_path(booking.skill, booking) do   %>
@@ -43,4 +46,5 @@
       <% end %>
       <% end %>
     </div>
+    <% end %>
 </div>

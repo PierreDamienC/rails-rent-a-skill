@@ -1,5 +1,8 @@
 <div class="container fix_footer">
   <div style= 'margin-top: 100px;'>
+    <% if @sum == 0 %>
+    <h1 style='padding-top: 100px;'>No one booked your skills yet</h1>
+    <% else %>
     <% @users_skills.each do |bookings_skill| %>
     <% unless bookings_skill[0] == nil %>
       <div class='gray-card-container'>
@@ -31,6 +34,7 @@
       <% else %>
       <% end %>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>
