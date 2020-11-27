@@ -25,6 +25,10 @@ const displayBookingDetails = () => {
   const startDate = document.getElementById("range_start");
   const endDate = document.getElementById("range_end");
   const totalDays = document.getElementById("total-days")
+  const skillPricePerDay = document.getElementById("price-per-day");
+  const totalPriceElement = document.getElementById("total-price");
+  console.log(totalPriceElement)
+  console.log(skillPricePerDay)
 
   const dynamicPrice = () => {
     let dateDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value);
@@ -32,6 +36,7 @@ const displayBookingDetails = () => {
     console.log(nbrOfDays)
     if(startDate.value && endDate.value) {
       totalDays.innerText = nbrOfDays
+      totalPriceElement.innerText = nbrOfDays * skillPricePerDay.innerText
     }
   };
 

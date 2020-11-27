@@ -32,6 +32,7 @@
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
+  text-align:left;
   margin: 0;
   text-decoration:none;
 }
@@ -70,7 +71,6 @@
 
 .gray-card-container {
   background-color: rgba(255,255,255,1);
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border-radius: 15px;
   margin-top: 20px;
   padding: 20px;
@@ -93,6 +93,13 @@
 }
 
 .card-trip-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+
+.card-trip-title{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
