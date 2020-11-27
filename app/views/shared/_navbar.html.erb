@@ -15,7 +15,7 @@
     <% end %>
 
 
-  <p id='title-navbar'><%= link_to "RENT A SKILL", root_path%></p>
+  <p id='title-navbar'><%= link_to "RENT A SKILL", root_path %></p>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,7 +26,7 @@
           <%= link_to "Share a skill", new_skill_path, class: "nav-link" %>
         </p>
         <div class="nav-item dropdown">
-          <!-- Si on propose àl 'utilisateur de mettre sa photo on pourra utiliser ce code en remplacant l'url dans l'image tag par photo.user.key-->
+          <!-- Si on propose à l'utilisateur de mettre sa photo on pourra utiliser ce code en remplacant l'url dans l'image tag par photo.user.key-->
           <% if current_user.photo.attachment %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
